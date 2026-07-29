@@ -1,0 +1,50 @@
+/* =================================================================
+   МОДУЛЬ: hero.css
+   Первый экран: параллакс-фон (двигает js/scrollEffects.js),
+   виньетка, «зерно плёнки», заголовок с покаскадной анимацией
+   появления, кнопки действий, индикатор прокрутки вниз.
+   Зависимость: css/animations.css (bounceDown, grainShift),
+                css/layout.css (.reveal, .eyebrow, .film-strip).
+   ================================================================= */
+
+.hero{
+  position:relative; height:100vh; min-height:600px; overflow:hidden;
+  display:flex; align-items:center;
+}
+.hero__bg{
+  position:absolute; inset:-18% 0 0 0; height:140%;
+  background-size:cover; background-position:center;
+  will-change: transform;
+}
+.hero__vignette{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 35%, var(--overlay) 100%),
+    linear-gradient(0deg, rgba(20,16,11,.75) 0%, rgba(20,16,11,.25) 45%, rgba(20,16,11,.55) 100%);
+}
+.hero__grain{
+  position:absolute; inset:-10%;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 3px 3px;
+  animation: grainShift 1s steps(2) infinite alternate;
+  opacity:.35; mix-blend-mode: overlay;
+}
+.hero__container{ position:relative; z-index:2; }
+.hero__content{ max-width:640px; color:#fff; }
+.hero .eyebrow{ color: var(--brass); }
+.hero__title{ font-size: clamp(2.4rem, 6vw, 4.2rem); line-height:1.05; color:#fff; margin-bottom:1.25rem; }
+.hero__subtitle{ font-size:1.15rem; color:rgba(255,255,255,.88); max-width:520px; margin-bottom:2rem; }
+.hero__actions{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+/* Покаскадная (staggered) задержка появления элементов hero — усиливает .reveal из layout.css */
+.hero__content .reveal:nth-child(1){ transition-delay:.1s; }
+.hero__content .reveal:nth-child(2){ transition-delay:.25s; }
+.hero__content .reveal:nth-child(3){ transition-delay:.4s; }
+.hero__content .reveal:nth-child(4){ transition-delay:.55s; }
+
+.scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+  z-index:2; background:transparent; border:none; color:#fff; font-size:1.6rem;
+  animation: bounceDown 2s ease-in-out infinite; cursor:pointer; opacity:.85;
+}
+.hero .film-strip{ position:absolute; left:0; right:0; bottom:0; z-index:2; }

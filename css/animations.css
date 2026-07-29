@@ -1,0 +1,32 @@
+/* =================================================================
+   МОДУЛЬ: animations.css
+   Библиотека @keyframes. Каждая анимация используется минимум одним
+   компонентом (указано в комментарии) — вынесена сюда отдельно,
+   чтобы её можно было переиспользовать в новых модулях, не копируя
+   определение повторно.
+   ================================================================= */
+
+/* используется: hero.css (.scroll-cue) */
+@keyframes bounceDown{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(10px); }
+}
+
+/* используется: hero.css (.hero__grain) — имитация зернистости плёнки */
+@keyframes grainShift{
+  0%{ transform:translate(0,0); }
+  100%{ transform:translate(-4%,-6%); }
+}
+
+/* используется: audio-player.css (.audio-player__eq) — анимация полос эквалайзера */
+@keyframes eqBar{
+  0%,100%{ transform:scaleY(.3); }
+  50%{ transform:scaleY(1); }
+}
+
+/* доступна для будущих модулей, которым нужна анимация появления
+   через @keyframes, а не через transition + смену класса (см. layout.css .reveal) */
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(28px); }
+  to{ opacity:1; transform:translateY(0); }
+}

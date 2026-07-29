@@ -1,0 +1,11 @@
+{
+  "name": "photoclub-objectiv",
+  "version": "1.0.0",
+  "description": "Учебный проект «Фотоклуб Объектив» — HTML5, CSS3, Bootstrap 5, JavaScript (ES-модули)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "npx serve . -l 5500",
+    "generate:audio": "node tools/generate-ambient-audio.js"
+  }
+}

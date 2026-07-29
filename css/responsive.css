@@ -1,0 +1,39 @@
+/* =================================================================
+   МОДУЛЬ: responsive.css
+   Все media queries проекта — сознательно собраны в ОДНОМ модуле,
+   а не распределены по файлам компонентов. Причина: у media-query
+   правила и у обычного правила для того же селектора одинаковая
+   специфичность, побеждает то, что идёт в CSS позже. Если раскидать
+   адаптацию по 18 файлам, порядок их подключения в <head> станет
+   критичным и очень хрупким. Поэтому этот файл — единственное
+   исключение из общего правила «один компонент = один файл», и он
+   ВСЕГДА подключается в index.html последним.
+   ================================================================= */
+
+@media (max-width: 991.98px){
+  .hero__content{ max-width:100%; }
+  .best-carousel .carousel-item{ height:52vh; }
+}
+
+@media (max-width: 767.98px){
+  .section{ padding:4.5rem 0; }
+  .hero{ height:92vh; }
+  .hero__bg{ background-attachment:scroll !important; } /* фикс параллакса для мобильного Safari */
+  .footer-bottom .container{ justify-content:center; text-align:center; }
+  .best-carousel .carousel-caption{ left:5%; right:5%; bottom:8%; }
+  .best-carousel .carousel-caption h5{ font-size:1.3rem; }
+}
+
+@media (max-width: 575.98px){
+  :root{ --header-h:66px; }
+  .hero__title{ font-size:2.1rem; }
+  .hero__actions{ flex-direction:column; align-items:stretch; }
+  .gallery-grid{ grid-template-columns:1fr 1fr; gap:.8rem; }
+  .benefits-grid{ grid-template-columns:1fr; }
+  #backToTop{ width:44px; height:44px; right:1rem; bottom:1rem; }
+  .audio-player{ flex-wrap:wrap; }
+}
+
+@media (min-width:1400px){
+  .container{ max-width:1260px; }
+}

@@ -1,0 +1,12 @@
+# Зависимости (появятся, только если поставите что-то через npm install)
+node_modules/
+
+# Файлы IDE WebStorm/IntelliJ — своя папка настроек на каждой машине
+.idea/
+
+# Системные файлы ОС
+.DS_Store
+Thumbs.db
+
+# Логи
+npm-debug.log*

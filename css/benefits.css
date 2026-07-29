@@ -1,0 +1,25 @@
+/* =================================================================
+   МОДУЛЬ: benefits.css
+   Сетка преимуществ хобби (CSS Grid, auto-fit/minmax) в разделе
+   «О хобби», плюс донастройка Bootstrap Alert для блока-совета.
+   ================================================================= */
+
+.benefits-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:1.4rem;
+}
+
+.benefit-card{
+  display:flex; gap:1rem; align-items:flex-start; /* Flexbox внутри Grid-ячейки */
+  background:var(--surface); border:1px solid var(--border-soft);
+  border-radius:var(--radius-md); padding:1.4rem; box-shadow:var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.benefit-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.benefit-card i{ font-size:1.6rem; color:var(--brass); flex-shrink:0; }
+.benefit-card h3{ font-size:1.02rem; margin-bottom:.25rem; font-family:var(--font-body); font-weight:700; }
+.benefit-card p{ font-size:.9rem; color:var(--ink-muted); margin-bottom:0; }
+
+.alert-tip{ background: rgba(var(--brass-rgb), .12); border:1px solid rgba(var(--brass-rgb), .35); color:var(--ink); border-radius:var(--radius-sm); }
+.alert-tip .btn-close{ filter: none; }

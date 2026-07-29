@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ru" data-bs-theme="light">
+<head>
+<!-- ================================================================
+     <head>: метаданные + подключение ВСЕХ модулей стилей.
+     Порядок ссылок важен для каскада: переменные → база → анимации →
+     layout-примитивы → компоненты по алфавиту смысла → адаптив (всегда
+     последним). Подробности — в методическом пособии, глава 4.2.
+     ================================================================ -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Фотоклуб «Объектив» — курсы, мастер-классы и сообщество любителей фотографии. Учебный проект: HTML5, CSS3, Bootstrap 5, JavaScript (ES-модули).">
+<meta name="theme-color" content="#B8863A">
+<title>Фотоклуб «Объектив» — курсы и мастер-классы по фотографии</title>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23211C16'/%3E%3Ccircle cx='50' cy='50' r='38' fill='%23B8863A'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23211C16'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5.3.8 CSS + Bootstrap Icons 1.13.1 (CDN, jsDelivr) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+<!-- ---------- Наши 19 CSS-модулей (css/) — порядок подключения важен для каскада ---------- -->
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/benefits.css">
+<link rel="stylesheet" href="css/gallery.css">
+<link rel="stylesheet" href="css/carousel.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/accordion.css">
+<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="css/contact.css">
+<link rel="stylesheet" href="css/audio-player.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/modals.css">
+<link rel="stylesheet" href="css/back-to-top.css">
+<link rel="stylesheet" href="css/responsive.css"><!-- всегда последним -->
+
+<!-- ---------- Скрипты ---------- -->
+<!-- defer: не блокирует парсинг HTML, выполняется после его завершения -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- type="module" ведёт себя как defer автоматически И подключает граф из 17 ES-модулей;
+     благодаря порядку (после строки выше) объект window.bootstrap уже гарантированно
+     существует к моменту выполнения js/main.js -->
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+
+<a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+
+<!-- ================================================================
+     ЧАСТЬ 2 — HTML: ШАПКА САЙТА (Navbar + Offcanvas, фиксированный header)
+     ================================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNavbar">
+  <div class="container-fluid px-3 px-lg-5">
+    <a class="navbar-brand" href="#home"><i class="bi bi-camera-fill"></i> Объектив</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainOffcanvas" aria-controls="mainOffcanvas" aria-label="Открыть меню">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mainOffcanvas" aria-labelledby="mainOffcanvasLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="mainOffcanvasLabel">Меню</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+        <ul class="navbar-nav ms-lg-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-1" id="navLinksList">
+          <li class="nav-item"><a class="nav-link" href="#about">О хобби</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Преподаватели</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0 ms-lg-3 toolbar-controls">
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Переключить тему оформления" title="Светлая/тёмная тема">
+            <i class="bi bi-moon-stars-fill" id="themeIcon" aria-hidden="true"></i>
+          </button>
+          <div class="font-size-controls" role="group" aria-label="Размер текста">
+            <button type="button" class="icon-btn" id="fontDecrease" aria-label="Уменьшить размер текста">A−</button>
+            <button type="button" class="icon-btn" id="fontReset" aria-label="Сбросить размер текста">A</button>
+            <button type="button" class="icon-btn" id="fontIncrease" aria-label="Увеличить размер текста">A+</button>
+          </div>
+          <a href="#contact" class="btn btn-brass btn-sm">Записаться</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- ================================================================
+     HERO — параллакс, анимация появления, «плёночный» разделитель
+     ================================================================ -->
+<header class="hero" id="home">
+  <div class="hero__bg" id="heroBg" style="background-image:url('https://picsum.photos/id/1015/1600/1300');"></div>
+  <div class="hero__vignette"></div>
+  <div class="hero__grain"></div>
+  <div class="container hero__container">
+    <div class="hero__content">
+      <p class="eyebrow reveal">// ФОТОКЛУБ «ОБЪЕКТИВ» — С 2014 ГОДА</p>
+      <h1 class="hero__title reveal">Учитесь<br>видеть <span class="text-brass">свет</span></h1>
+      <p class="hero__subtitle reveal">Курсы, мастер-классы и клуб единомышленников для тех, кто хочет фотографировать осознанно — камерой или телефоном.</p>
+      <div class="hero__actions reveal">
+        <a href="#gallery" class="btn btn-brass btn-lg">Смотреть галерею</a>
+        <button class="btn btn-outline-light btn-lg" id="listenIntroBtn" type="button">
+          <i class="bi bi-volume-up" aria-hidden="true"></i> Прослушать вступление
+        </button>
+      </div>
+    </div>
+  </div>
+  <button class="scroll-cue" id="scrollCue" aria-label="Прокрутить вниз, к разделу «О хобби»">
+    <i class="bi bi-chevron-down" aria-hidden="true"></i>
+  </button>
+  <div class="film-strip"></div>
+</header>
+
+<!-- ================================================================
+     О ХОББИ — Grid-сетка преимуществ, SpeechSynthesis, Alert
+     ================================================================ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <p class="eyebrow reveal">О ХОББИ</p>
+        <h2 class="section-title reveal">Почему стоит взять камеру в руки</h2>
+        <p class="reveal" id="aboutText">Фотография — это гораздо больше, чем просто нажатие кнопки затвора. Это способ увидеть мир иначе: заметить, как утренний свет ложится на мокрый асфальт, как меняется выражение лица человека за долю секунды, как обычная чашка кофе может стать произведением искусства при правильном ракурсе. Наш фотоклуб объединяет людей, которые хотят научиться этому языку — языку света, композиции и момента. Неважно, снимаете вы на профессиональную камеру или на смартфон: главное — желание учиться и внимание к деталям.</p>
+        <button class="btn btn-outline-brass reveal" id="listenAboutBtn" type="button" data-target-text="aboutText">
+          <i class="bi bi-play-fill" aria-hidden="true"></i> <span>Прослушать статью</span>
+        </button>
+
+        <div class="alert alert-tip alert-dismissible fade show mt-4 reveal" role="alert">
+          <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
+          <strong>Совет новичкам:</strong> не гонитесь за дорогой техникой — начните с той камеры, которая уже есть у вас в кармане.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="benefits-grid">
+          <div class="benefit-card reveal">
+            <i class="bi bi-palette" aria-hidden="true"></i>
+            <div><h3>Творческое самовыражение</h3><p>Свой взгляд на мир, выраженный через кадр.</p></div>
+          </div>
+          <div class="benefit-card reveal">
+            <i class="bi bi-camera" aria-hidden="true"></i>
+            <div><h3>Сохранение моментов</h3><p>Воспоминания, которые не стираются со временем.</p></div>
+          </div>
+          <div class="benefit-card reveal">
+            <i class="bi bi-people-fill" aria-hidden="true"></i>
+            <div><h3>Новые знакомства</h3><p>Фотопрогулки и клуб объединяют единомышленников.</p></div>
+          </div>
+          <div class="benefit-card reveal">
+            <i class="bi bi-airplane" aria-hidden="true"></i>
+            <div><h3>Путешествия иначе</h3><p>Поездки превращаются в охоту за кадром.</p></div>
+          </div>
+          <div class="benefit-card reveal">
+            <i class="bi bi-emoji-smile" aria-hidden="true"></i>
+            <div><h3>Антистресс-эффект</h3><p>Съёмка — это медитативный, осознанный процесс.</p></div>
+          </div>
+          <div class="benefit-card reveal">
+            <i class="bi bi-cash-coin" aria-hidden="true"></i>
+            <div><h3>Доп. заработок</h3><p>Хобби, которое умеет окупать себя.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ГАЛЕРЕЯ — CSS Grid, фильтры (JS), лайтбокс (Modal), Web Audio API
+     ================================================================ -->
+<section class="section section--alt" id="gallery">
+  <div class="container">
+    <p class="eyebrow reveal">РАБОТЫ УЧЕНИКОВ И ПРЕПОДАВАТЕЛЕЙ</p>
+    <h2 class="section-title reveal">Галерея работ</h2>
+
+    <div class="gallery-filters reveal" role="group" aria-label="Фильтр галереи по категориям">
+      <button class="filter-btn active" data-filter="all" type="button">Все</button>
+      <button class="filter-btn" data-filter="landscape" type="button">Пейзаж</button>
+      <button class="filter-btn" data-filter="nature" type="button">Природа</button>
+      <button class="filter-btn" data-filter="bw" type="button">Ч/Б</button>
+      <button class="filter-btn" data-filter="urban" type="button">Архитектура</button>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <figure class="gallery-item reveal" data-category="landscape">
+        <img src="https://picsum.photos/id/1015/700/525" alt="Рассвет над водой в горах" loading="lazy">
+        <figcaption><span class="gallery-item__title">Рассвет над водой</span><span class="gallery-item__exif">f/8 · 1/125s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="landscape">
+        <img src="https://picsum.photos/id/1018/700/525" alt="Горная тропа в облаках" loading="lazy">
+        <figcaption><span class="gallery-item__title">Дорога в горы</span><span class="gallery-item__exif">f/11 · 1/60s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="landscape">
+        <img src="https://picsum.photos/id/1019/700/525" alt="Пирс на озере" loading="lazy">
+        <figcaption><span class="gallery-item__title">Тишина озера</span><span class="gallery-item__exif">f/5.6 · 1/200s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="urban">
+        <img src="https://picsum.photos/id/433/700/525" alt="Городская архитектура" loading="lazy">
+        <figcaption><span class="gallery-item__title">Городские линии</span><span class="gallery-item__exif">f/8 · 1/500s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal is-bw" data-category="bw">
+        <img src="https://picsum.photos/id/1043/700/525" alt="Игра света и тени" loading="lazy">
+        <figcaption><span class="gallery-item__title">Игра света и тени</span><span class="gallery-item__exif">f/4 · 1/320s · ISO 200</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="nature">
+        <img src="https://picsum.photos/id/1074/700/525" alt="Водопад, длинная выдержка" loading="lazy">
+        <figcaption><span class="gallery-item__title">Живая вода</span><span class="gallery-item__exif">f/16 · 1/4s · ISO 50</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal is-bw" data-category="bw">
+        <img src="https://picsum.photos/id/1044/700/525" alt="Утренний туман в лесу" loading="lazy">
+        <figcaption><span class="gallery-item__title">Утренняя дымка</span><span class="gallery-item__exif">f/5.6 · 1/160s · ISO 320</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="landscape">
+        <img src="https://picsum.photos/id/1050/700/525" alt="Туман над горными вершинами" loading="lazy">
+        <figcaption><span class="gallery-item__title">Туман над вершинами</span><span class="gallery-item__exif">f/9 · 1/100s · ISO 200</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" data-category="nature">
+        <img src="https://picsum.photos/id/237/700/525" alt="Портрет животного крупным планом" loading="lazy">
+        <figcaption><span class="gallery-item__title">Взгляд</span><span class="gallery-item__exif">f/2.8 · 1/250s · ISO 400</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BOOTSTRAP CAROUSEL — «Лучшие кадры недели»
+     ================================================================ -->
+<section class="section" id="best-shots">
+  <div class="container">
+    <p class="eyebrow reveal">ПОДБОРКА РЕДАКЦИИ</p>
+    <h2 class="section-title reveal">Лучшие кадры недели</h2>
+  </div>
+  <div id="bestCarousel" class="carousel slide best-carousel reveal" data-bs-ride="carousel" data-bs-interval="4500">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#bestCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+      <button type="button" data-bs-target="#bestCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+      <button type="button" data-bs-target="#bestCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+      <button type="button" data-bs-target="#bestCarousel" data-bs-slide-to="3" aria-label="Слайд 4"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://picsum.photos/id/1015/1600/900" alt="Рассвет над водой">
+        <div class="carousel-caption"><span>Кадр №01</span><h5>Рассвет над водой — Игорь П.</h5></div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/id/1050/1600/900" alt="Туман над вершинами">
+        <div class="carousel-caption"><span>Кадр №02</span><h5>Туман над вершинами — Мария О.</h5></div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/id/1074/1600/900" alt="Живая вода — водопад">
+        <div class="carousel-caption"><span>Кадр №03</span><h5>Живая вода — Сергей Т.</h5></div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://picsum.photos/id/433/1600/900" alt="Городские линии">
+        <div class="carousel-caption"><span>Кадр №04</span><h5>Городские линии — Елена Р.</h5></div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#bestCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Предыдущий</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#bestCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Следующий</span>
+    </button>
+  </div>
+</section>
+
+<!-- ================================================================
+     КУРСЫ — Bootstrap Cards + модальное окно записи
+     ================================================================ -->
+<section class="section section--alt" id="courses">
+  <div class="container">
+    <p class="eyebrow reveal">ОБУЧЕНИЕ</p>
+    <h2 class="section-title reveal">Курсы и мастер-классы</h2>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1019/500/380" alt="Курс «Основы фотографии»"></div>
+          <div class="card-body">
+            <h3 class="h5">Основы фотографии</h3>
+            <p class="text-muted small">Экспопара, композиция, работа с ручными настройками камеры. 4 недели, для начинающих.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">6 900 ₽</span>
+              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Основы фотографии" data-price="6 900 ₽">Записаться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/64/500/380" alt="Курс «Портретная съёмка»"></div>
+          <div class="card-body">
+            <h3 class="h5">Портретная съёмка</h3>
+            <p class="text-muted small">Свет, поза, взаимодействие с моделью — в студии и на natural light. 3 недели.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">8 900 ₽</span>
+              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Портретная съёмка" data-price="8 900 ₽">Записаться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/60/500/380" alt="Курс «Обработка и ретушь»"></div>
+          <div class="card-body">
+            <h3 class="h5">Обработка и ретушь</h3>
+            <p class="text-muted small">Lightroom и Photoshop: цветокоррекция, ретушь портрета, экспорт. 3 недели.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">7 500 ₽</span>
+              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Обработка и ретушь" data-price="7 500 ₽">Записаться</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ПРЕПОДАВАТЕЛИ — Cards + динамическое модальное окно (JS + DOM)
+     ================================================================ -->
+<section class="section" id="team">
+  <div class="container">
+    <p class="eyebrow reveal">НАСТАВНИКИ</p>
+    <h2 class="section-title reveal">Наши преподаватели</h2>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="https://i.pravatar.cc/400?img=47" alt="Анна Соколова"></div>
+          <div class="card-body">
+            <h3 class="h5 mb-1">Анна Соколова</h3>
+            <p class="text-muted small mb-2">Портретная и свадебная съёмка · 10 лет опыта</p>
+            <button class="btn btn-outline-brass btn-sm" data-instructor="anna">Подробнее</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="https://i.pravatar.cc/400?img=12" alt="Дмитрий Волков"></div>
+          <div class="card-body">
+            <h3 class="h5 mb-1">Дмитрий Волков</h3>
+            <p class="text-muted small mb-2">Пейзаж и travel-фотография · 8 лет опыта</p>
+            <button class="btn btn-outline-brass btn-sm" data-instructor="dmitry">Подробнее</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="https://i.pravatar.cc/400?img=33" alt="Мария Кузнецова"></div>
+          <div class="card-body">
+            <h3 class="h5 mb-1">Мария Кузнецова</h3>
+            <p class="text-muted small mb-2">Обработка и ретушь · Lightroom/Photoshop</p>
+            <button class="btn btn-outline-brass btn-sm" data-instructor="maria">Подробнее</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ОТЗЫВЫ
+     ================================================================ -->
+<section class="section section--alt" id="reviews">
+  <div class="container">
+    <p class="eyebrow reveal">ОТЗЫВЫ</p>
+    <h2 class="section-title reveal">Что говорят ученики</h2>
+    <div class="row g-4">
+      <div class="col-md-4 reveal">
+        <div class="card review-card p-4">
+          <i class="bi bi-quote text-brass fs-3"></i>
+          <p>«Пришёл вообще без опыта. Через месяц уже снимал друзьям первую фотопрогулку!»</p>
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <img src="https://i.pravatar.cc/60?img=15" class="rounded-circle" width="42" height="42" alt="Игорь П.">
+            <div><strong>Игорь П.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card review-card p-4">
+          <i class="bi bi-quote text-brass fs-3"></i>
+          <p>«Очень тёплая атмосфера в группе и понятные объяснения без занудства.»</p>
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <img src="https://i.pravatar.cc/60?img=25" class="rounded-circle" width="42" height="42" alt="Елена Р.">
+            <div><strong>Елена Р.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card review-card p-4">
+          <i class="bi bi-quote text-brass fs-3"></i>
+          <p>«Курс по портретам перевернул моё понимание света. Теперь по-другому смотрю на кадр.»</p>
+          <div class="d-flex align-items-center gap-2 mt-3">
+            <img src="https://i.pravatar.cc/60?img=8" class="rounded-circle" width="42" height="42" alt="Сергей Т.">
+            <div><strong>Сергей Т.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ — Bootstrap Accordion + повторное использование SpeechSynthesis
+     ================================================================ -->
+<section class="section" id="faq">
+  <div class="container">
+    <p class="eyebrow reveal">ЧАСТЫЕ ВОПРОСЫ</p>
+    <h2 class="section-title reveal">FAQ</h2>
+
+    <div class="accordion reveal" id="faqAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Нужна ли дорогая камера, чтобы начать?
+          </button>
+        </h3>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Нет. Понимание света и композиции важнее техники — на старте достаточно камеры смартфона. Технику имеет смысл наращивать по мере роста навыка.</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Сколько времени нужно, чтобы научиться снимать хорошо?
+          </button>
+        </h3>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Базовые принципы осваиваются за несколько недель, уверенность и свой стиль — за несколько месяцев регулярной практики.</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Можно ли обучаться, снимая только на смартфон?
+          </button>
+        </h3>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Да, современные смартфоны отлично подходят для старта. У нас есть отдельный блок по мобильной фотографии в базовом курсе.</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+            Как выбрать первый объектив?
+          </button>
+        </h3>
+        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Зависит от жанра: портрет — 50 мм, пейзаж — широкоугольный. Для старта чаще всего хватает универсального китового объектива.</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+            Проводите ли вы занятия онлайн?
+          </button>
+        </h3>
+        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Да, формат гибридный: очные встречи в студии совмещены с онлайн-разборами домашних заданий.</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+            Как записаться на курс?
+          </button>
+        </h3>
+        <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            <p>Через кнопку «Записаться» у нужного курса или через форму обратной связи в разделе «Контакты».</p>
+            <button class="faq-listen" type="button" aria-label="Прослушать ответ"><i class="bi bi-volume-up"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     КОНТАКТЫ — форма (Bootstrap Forms + валидация), карта, аудиоплеер
+     ================================================================ -->
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <p class="eyebrow reveal">СВЯЖИТЕСЬ С НАМИ</p>
+    <h2 class="section-title reveal">Контакты и форма обратной связи</h2>
+
+    <div class="row g-5">
+      <div class="col-lg-7 reveal">
+        <form id="contactForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="cfName" class="form-label">Имя *</label>
+              <input type="text" class="form-control" id="cfName" required minlength="2">
+              <div class="invalid-feedback">Пожалуйста, укажите имя (минимум 2 символа).</div>
+            </div>
+            <div class="col-md-6">
+              <label for="cfEmail" class="form-label">Email *</label>
+              <input type="email" class="form-control" id="cfEmail" required>
+              <div class="invalid-feedback">Введите корректный email.</div>
+            </div>
+            <div class="col-md-6">
+              <label for="cfPhone" class="form-label">Телефон</label>
+              <input type="tel" class="form-control" id="cfPhone" placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="col-md-6">
+              <label for="cfSubject" class="form-label">Тема</label>
+              <select class="form-select" id="cfSubject">
+                <option>Общий вопрос</option>
+                <option>Запись на курс</option>
+                <option>Сотрудничество</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label for="cfMessage" class="form-label">Сообщение *</label>
+              <textarea class="form-control" id="cfMessage" rows="4" required minlength="10"></textarea>
+              <div class="invalid-feedback">Сообщение должно содержать не менее 10 символов.</div>
+            </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="cfAgree" required>
+                <label class="form-check-label small" for="cfAgree">Согласен(а) с политикой конфиденциальности *</label>
+                <div class="invalid-feedback">Необходимо согласие для отправки формы.</div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-brass" id="cfSubmitBtn">
+                <i class="bi bi-send"></i> Отправить сообщение
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-lg-5 reveal">
+        <div class="contact-info-item">
+          <i class="bi bi-geo-alt-fill"></i>
+          <div><strong>Адрес студии</strong><div class="text-muted">г. Москва, ул. Арбат, 10</div></div>
+        </div>
+        <div class="contact-info-item">
+          <i class="bi bi-telephone-fill"></i>
+          <div><strong>Телефон</strong><div class="text-muted">+7 (495) 123-45-67</div></div>
+        </div>
+        <div class="contact-info-item">
+          <i class="bi bi-envelope-fill"></i>
+          <div><strong>Email</strong><div class="text-muted">info@objectiv-photoclub.ru</div></div>
+        </div>
+        <div class="contact-info-item">
+          <i class="bi bi-clock-fill"></i>
+          <div><strong>Часы работы</strong><div class="text-muted">Пн–Сб: 10:00–20:00</div></div>
+        </div>
+
+        <div class="audio-player mt-4">
+          <button class="audio-player__play" id="ambientToggle" type="button" aria-label="Включить фоновую атмосферу студии">
+            <i class="bi bi-play-fill" id="ambientIcon" aria-hidden="true"></i>
+          </button>
+          <div>
+            <div class="fw-semibold small mb-1">Атмосфера студии</div>
+            <div class="audio-player__eq" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
+          <input type="range" class="volume-slider ms-auto" id="ambientVolume" min="0" max="100" value="35" aria-label="Громкость">
+          <audio id="ambientAudio" loop preload="none">
+            <source src="assets/audio/ambient.wav" type="audio/wav">
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12 reveal">
+        <div class="map-frame">
+          <iframe
+            src="https://maps.google.com/maps?q=Moscow%2C%20Arbat%20street%2C%2010&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            width="100%" height="380" style="border:0;" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Карта расположения фотостудии «Объектив»"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5><i class="bi bi-camera-fill text-brass"></i> Объектив</h5>
+        <p class="small">Фотоклуб для тех, кто хочет научиться видеть и снимать осознанно. Курсы, мастер-классы, сообщество.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Telegram"><i class="bi bi-telegram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          <a href="#" aria-label="VK"><i class="bi bi-vimeo"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4">
+        <h5>Разделы</h5>
+        <ul class="list-unstyled small">
+          <li><a href="#about">О хобби</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#courses">Курсы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5>Курсы</h5>
+        <ul class="list-unstyled small">
+          <li><a href="#courses">Основы фотографии</a></li>
+          <li><a href="#courses">Портретная съёмка</a></li>
+          <li><a href="#courses">Обработка и ретушь</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5>Рассылка</h5>
+        <p class="small">Разбор одного кадра в неделю — на почту.</p>
+        <form id="newsletterForm" class="d-flex gap-2 flex-wrap" novalidate>
+          <input type="email" class="form-control form-control-sm" id="newsletterEmail" placeholder="Ваш email" required style="max-width:220px;">
+          <button class="btn btn-brass btn-sm" type="submit">OK</button>
+        </form>
+        <div id="newsletterAlertZone" class="mt-2"></div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <span class="small">© 2026 Фотоклуб «Объектив». Учебный курсовой проект.</span>
+        <span class="small">Сделано с <i class="bi bi-heart-fill text-brass"></i> для изучения фронтенда</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Наверх"><i class="bi bi-arrow-up" aria-hidden="true"></i></button>
+
+<!-- ================================================================
+     МОДАЛЬНЫЕ ОКНА (Bootstrap Modal) — четыре разных окна
+     ================================================================ -->
+
+<!-- 1) Лайтбокс галереи -->
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="photoModalLabel">Просмотр фотографии</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <img id="photoModalImg" src="" alt="">
+        <div class="d-flex justify-content-between align-items-center mt-3">
+          <button class="photo-nav-btn" id="photoPrevBtn" aria-label="Предыдущее фото"><i class="bi bi-chevron-left"></i></button>
+          <div class="text-center">
+            <div id="photoModalTitle" class="fw-semibold"></div>
+            <div id="photoModalExif" class="small text-brass" style="font-family:var(--font-mono);"></div>
+          </div>
+          <button class="photo-nav-btn" id="photoNextBtn" aria-label="Следующее фото"><i class="bi bi-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2) Запись на курс -->
+<div class="modal fade" id="courseModal" tabindex="-1" aria-labelledby="courseModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="courseModalLabel">Запись на курс</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body">
+        <p>Вы записываетесь на курс: <strong id="courseModalName">—</strong></p>
+        <p>Стоимость: <strong id="courseModalPrice">—</strong></p>
+        <form id="courseForm">
+          <div class="mb-3">
+            <label for="courseName" class="form-label">Ваше имя</label>
+            <input type="text" class="form-control" id="courseName" required>
+          </div>
+          <div class="mb-3">
+            <label for="coursePhone" class="form-label">Телефон</label>
+            <input type="tel" class="form-control" id="coursePhone" required>
+          </div>
+          <button type="submit" class="btn btn-brass w-100">Подтвердить запись</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3) Информация о преподавателе (динамическое содержимое через JS) -->
+<div class="modal fade" id="instructorModal" tabindex="-1" aria-labelledby="instructorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="instructorModalLabel">О преподавателе</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+      </div>
+      <div class="modal-body d-flex gap-3">
+        <img id="instructorModalImg" src="" alt="" width="90" height="90" class="rounded-circle flex-shrink-0" style="object-fit:cover;">
+        <div>
+          <h4 class="h5 mb-1" id="instructorModalName"></h4>
+          <p class="text-brass small mb-2" id="instructorModalRole"></p>
+          <p class="small mb-0" id="instructorModalBio"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4) Успешная отправка формы -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-body p-5">
+        <i class="bi bi-check-circle-fill text-brass" style="font-size:3.2rem;"></i>
+        <h4 class="mt-3">Спасибо!</h4>
+        <p class="text-muted mb-0" id="successModalText">Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.</p>
+        <button type="button" class="btn btn-brass mt-4" data-bs-dismiss="modal">Отлично</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
