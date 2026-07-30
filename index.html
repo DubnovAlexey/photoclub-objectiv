@@ -31,17 +31,13 @@
 <link rel="stylesheet" href="css/buttons.css">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/hero.css">
-<link rel="stylesheet" href="css/benefits.css">
 <link rel="stylesheet" href="css/gallery.css">
-<link rel="stylesheet" href="css/carousel.css">
 <link rel="stylesheet" href="css/cards.css">
-<link rel="stylesheet" href="css/accordion.css">
+<link rel="stylesheet" href="css/content-sections.css">
+<link rel="stylesheet" href="css/space-safari.css">
 <link rel="stylesheet" href="css/forms.css">
-<link rel="stylesheet" href="css/contact.css">
-<link rel="stylesheet" href="css/audio-player.css">
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/modals.css">
-<link rel="stylesheet" href="css/back-to-top.css">
 <link rel="stylesheet" href="css/responsive.css"><!-- всегда последним -->
 
 <!-- ---------- Скрипты ---------- -->
@@ -76,6 +72,8 @@
         <ul class="navbar-nav ms-lg-auto mb-3 mb-lg-0 align-items-lg-center gap-lg-1" id="navLinksList">
           <li class="nav-item"><a class="nav-link" href="#about">О хобби</a></li>
           <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">География</a></li>
+          <li class="nav-item"><a class="nav-link" href="#space-safari">Космос</a></li>
           <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
           <li class="nav-item"><a class="nav-link" href="#team">Преподаватели</a></li>
           <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы</a></li>
@@ -91,7 +89,7 @@
             <button type="button" class="icon-btn" id="fontReset" aria-label="Сбросить размер текста">A</button>
             <button type="button" class="icon-btn" id="fontIncrease" aria-label="Увеличить размер текста">A+</button>
           </div>
-          <a href="#contact" class="btn btn-brass btn-sm">Записаться</a>
+          <a href="#contact" class="btn btn-accent btn-sm">Записаться</a>
         </div>
       </div>
     </div>
@@ -109,10 +107,10 @@
   <div class="container hero__container">
     <div class="hero__content">
       <p class="eyebrow reveal">// ФОТОКЛУБ «ОБЪЕКТИВ» — С 2014 ГОДА</p>
-      <h1 class="hero__title reveal">Учитесь<br>видеть <span class="text-brass">свет</span></h1>
+      <h1 class="hero__title reveal">Учитесь<br>видеть <span class="hero__title-accent">свет</span></h1>
       <p class="hero__subtitle reveal">Курсы, мастер-классы и клуб единомышленников для тех, кто хочет фотографировать осознанно — камерой или телефоном.</p>
       <div class="hero__actions reveal">
-        <a href="#gallery" class="btn btn-brass btn-lg">Смотреть галерею</a>
+        <a href="#gallery" class="btn btn-accent btn-lg">Смотреть галерею</a>
         <button class="btn btn-outline-light btn-lg" id="listenIntroBtn" type="button">
           <i class="bi bi-volume-up" aria-hidden="true"></i> Прослушать вступление
         </button>
@@ -135,7 +133,7 @@
         <p class="eyebrow reveal">О ХОББИ</p>
         <h2 class="section-title reveal">Почему стоит взять камеру в руки</h2>
         <p class="reveal" id="aboutText">Фотография — это гораздо больше, чем просто нажатие кнопки затвора. Это способ увидеть мир иначе: заметить, как утренний свет ложится на мокрый асфальт, как меняется выражение лица человека за долю секунды, как обычная чашка кофе может стать произведением искусства при правильном ракурсе. Наш фотоклуб объединяет людей, которые хотят научиться этому языку — языку света, композиции и момента. Неважно, снимаете вы на профессиональную камеру или на смартфон: главное — желание учиться и внимание к деталям.</p>
-        <button class="btn btn-outline-brass reveal" id="listenAboutBtn" type="button" data-target-text="aboutText">
+        <button class="btn btn-outline-accent reveal" id="listenAboutBtn" type="button" data-target-text="aboutText">
           <i class="bi bi-play-fill" aria-hidden="true"></i> <span>Прослушать статью</span>
         </button>
 
@@ -196,40 +194,85 @@
 
     <div class="gallery-grid" id="galleryGrid">
       <figure class="gallery-item reveal" data-category="landscape">
-        <img src="https://picsum.photos/id/1015/700/525" alt="Рассвет над водой в горах" loading="lazy">
-        <figcaption><span class="gallery-item__title">Рассвет над водой</span><span class="gallery-item__exif">f/8 · 1/125s · ISO 100</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Рассвет над водой">
+          <img src="https://picsum.photos/id/1015/700/525" alt="Рассвет над водой в горах" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Рассвет над водой</span>
+            <span class="gallery-item__exif">f/8 · 1/125s · ISO 100</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="landscape">
-        <img src="https://picsum.photos/id/1018/700/525" alt="Горная тропа в облаках" loading="lazy">
-        <figcaption><span class="gallery-item__title">Дорога в горы</span><span class="gallery-item__exif">f/11 · 1/60s · ISO 100</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Дорога в горы">
+          <img src="https://picsum.photos/id/1018/700/525" alt="Горная тропа в облаках" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Дорога в горы</span>
+            <span class="gallery-item__exif">f/11 · 1/60s · ISO 100</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="landscape">
-        <img src="https://picsum.photos/id/1019/700/525" alt="Пирс на озере" loading="lazy">
-        <figcaption><span class="gallery-item__title">Тишина озера</span><span class="gallery-item__exif">f/5.6 · 1/200s · ISO 100</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Тишина озера">
+          <img src="https://picsum.photos/id/1019/700/525" alt="Пирс на озере" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Тишина озера</span>
+            <span class="gallery-item__exif">f/5.6 · 1/200s · ISO 100</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="urban">
-        <img src="https://picsum.photos/id/433/700/525" alt="Городская архитектура" loading="lazy">
-        <figcaption><span class="gallery-item__title">Городские линии</span><span class="gallery-item__exif">f/8 · 1/500s · ISO 100</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Городские линии">
+          <img src="https://picsum.photos/id/433/700/525" alt="Городская архитектура" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Городские линии</span>
+            <span class="gallery-item__exif">f/8 · 1/500s · ISO 100</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal is-bw" data-category="bw">
-        <img src="https://picsum.photos/id/1043/700/525" alt="Игра света и тени" loading="lazy">
-        <figcaption><span class="gallery-item__title">Игра света и тени</span><span class="gallery-item__exif">f/4 · 1/320s · ISO 200</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Игра света и тени">
+          <img src="https://picsum.photos/id/1043/700/525" alt="Игра света и тени" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Игра света и тени</span>
+            <span class="gallery-item__exif">f/4 · 1/320s · ISO 200</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="nature">
-        <img src="https://picsum.photos/id/1074/700/525" alt="Водопад, длинная выдержка" loading="lazy">
-        <figcaption><span class="gallery-item__title">Живая вода</span><span class="gallery-item__exif">f/16 · 1/4s · ISO 50</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Живая вода">
+          <img src="https://picsum.photos/id/1074/700/525" alt="Водопад, длинная выдержка" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Живая вода</span>
+            <span class="gallery-item__exif">f/16 · 1/4s · ISO 50</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal is-bw" data-category="bw">
-        <img src="https://picsum.photos/id/1044/700/525" alt="Утренний туман в лесу" loading="lazy">
-        <figcaption><span class="gallery-item__title">Утренняя дымка</span><span class="gallery-item__exif">f/5.6 · 1/160s · ISO 320</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Утренняя дымка">
+          <img src="https://picsum.photos/id/1044/700/525" alt="Утренний туман в лесу" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Утренняя дымка</span>
+            <span class="gallery-item__exif">f/5.6 · 1/160s · ISO 320</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="landscape">
-        <img src="https://picsum.photos/id/1050/700/525" alt="Туман над горными вершинами" loading="lazy">
-        <figcaption><span class="gallery-item__title">Туман над вершинами</span><span class="gallery-item__exif">f/9 · 1/100s · ISO 200</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Туман над вершинами">
+          <img src="https://picsum.photos/id/1050/700/525" alt="Туман над горными вершинами" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Туман над вершинами</span>
+            <span class="gallery-item__exif">f/9 · 1/100s · ISO 200</span>
+          </span>
+        </button>
       </figure>
       <figure class="gallery-item reveal" data-category="nature">
-        <img src="https://picsum.photos/id/237/700/525" alt="Портрет животного крупным планом" loading="lazy">
-        <figcaption><span class="gallery-item__title">Взгляд</span><span class="gallery-item__exif">f/2.8 · 1/250s · ISO 400</span></figcaption>
+        <button type="button" class="gallery-item__btn" aria-label="Открыть увеличенное фото: Взгляд">
+          <img src="https://picsum.photos/id/237/700/525" alt="Портрет животного крупным планом" loading="lazy">
+          <span class="gallery-item__caption">
+            <span class="gallery-item__title">Взгляд</span>
+            <span class="gallery-item__exif">f/2.8 · 1/250s · ISO 400</span>
+          </span>
+        </button>
       </figure>
     </div>
   </div>
@@ -278,6 +321,223 @@
 </section>
 
 <!-- ================================================================
+     ГЕОГРАФИЯ СЪЁМОК — HTML5 <video> (сгенерированные фоны-настроения) + фото + CSS-градиент
+     ================================================================ -->
+<section class="section" id="destinations">
+  <div class="container">
+    <p class="eyebrow reveal">КУДА МЫ ЕЗДИМ СНИМАТЬ</p>
+    <h2 class="section-title reveal">География наших фотопрогулок</h2>
+    <div class="mood-grid">
+
+      <div class="mood-card reveal">
+        <video autoplay muted loop playsinline preload="none" poster="https://picsum.photos/id/1069/700/900">
+          <source src="assets/video/sea-mood.mp4" type="video/mp4">
+        </video>
+        <div class="mood-card__body">
+          <span class="mood-card__eyebrow">Побережье</span>
+          <h3 class="mood-card__title">Средиземное море</h3>
+        </div>
+      </div>
+
+      <div class="mood-card reveal">
+        <video autoplay muted loop playsinline preload="none" poster="https://picsum.photos/id/1044/700/900">
+          <source src="assets/video/taiga-mood.mp4" type="video/mp4">
+        </video>
+        <div class="mood-card__body">
+          <span class="mood-card__eyebrow">Лес</span>
+          <h3 class="mood-card__title">Тайга</h3>
+        </div>
+      </div>
+
+      <div class="mood-card reveal">
+        <img src="https://picsum.photos/id/1050/700/900" alt="Скалы и остров в тумане" loading="lazy">
+        <div class="mood-card__body">
+          <span class="mood-card__eyebrow">Скалы</span>
+          <h3 class="mood-card__title">Остров и утёсы</h3>
+        </div>
+      </div>
+
+      <div class="mood-card mood-card--gradient reveal">
+        <div class="mood-card__body">
+          <span class="mood-card__eyebrow">Горы</span>
+          <h3 class="mood-card__title">Алтайское разнотравье</h3>
+        </div>
+      </div>
+
+    </div>
+    <p class="small text-muted mt-3 mb-0">
+      Видео-фоны выше — не реальные съёмки, а сгенерированные вручную (ffmpeg, без интернета)
+      цветовые заливки в палитре сайта: демонстрация тега <code>&lt;video&gt;</code> с
+      <code>autoplay muted loop playsinline</code>, а не фотоотчёт с места.
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================
+     ФОТООХОТА ПО ВСЕЛЕННОЙ — оригинальный юмористический раздел.
+     Персонажи, корабли и «трофеи» придуманы с нуля; ни имён, ни
+     музыки, ни образов из чужих книг/игр здесь нет.
+     ================================================================ -->
+<section class="section section--alt" id="space-safari">
+  <div class="container">
+    <p class="eyebrow reveal">НОВОЕ НАПРАВЛЕНИЕ КЛУБА (ЭКСПЕРИМЕНТАЛЬНОЕ)</p>
+    <h2 class="section-title reveal">Фотоохота по Вселенной</h2>
+    <p class="reveal">Всё началось с фразы в чате клуба: «а можно снять портрет туманности?».
+      Бухгалтерия до сих пор не нашла, кто её написал. Мы наняли трёх гидов сомнительной
+      адёкватности, взяли в лизинг три корабля разной степени исправности — и открыли направление.
+      Фотографии почти всех объектов прилагаются.</p>
+
+    <div class="audio-player mt-3 mb-5 reveal">
+      <button class="audio-player__play" id="spaceAmbientToggle" type="button" aria-label="Включить космический эмбиент">
+        <i class="bi bi-play-fill" id="spaceAmbientIcon" aria-hidden="true"></i>
+      </button>
+      <div>
+        <div class="fw-semibold small mb-1">Космический эмбиент</div>
+        <div class="audio-player__eq" aria-hidden="true"><span></span><span></span><span></span></div>
+      </div>
+      <input type="range" class="volume-slider ms-auto" id="spaceAmbientVolume" min="0" max="100" value="30" aria-label="Громкость">
+      <audio id="spaceAmbientAudio" loop preload="none">
+        <source src="assets/audio/space-ambient.wav" type="audio/wav">
+      </audio>
+    </div>
+    <p class="small text-muted mt-n4 mb-5">
+      Оригинальная синтезаторная композиция, написанная для этого проекта (Web Audio API/генерация в Node.js) —
+      не саундтрек какой-либо игры.
+    </p>
+
+    <h3 class="reveal mb-4">Ваши гиды</h3>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-grh.svg" alt="Гид Грх"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">Грх (просто Грх)</h4>
+            <p class="text-muted small mb-2">Гид по туманностям · родом с Пыльной Окраины</p>
+            <p class="small">Водил экскурсии по 14 туманностям, пока не понял, что туристам нужно
+              одно — красивое фото на фоне звёзд. Про количество глаз вопросы не задавайте — по документам их два.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-iris.svg" alt="Капитан Ирис Вон"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">Капитан Ирис Вон</h4>
+            <p class="text-muted small mb-2">Пилот · экстремальная фотосъёмка</p>
+            <p class="small">Тринадцать успешных посадок из четырнадцати попыток. Четырнадцатая
+              считается произведением современного искусства в местном музее обломков.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-echo9.svg" alt="Гид ЭХО-9"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">ЭХО-9</h4>
+            <p class="text-muted small mb-2">Синтетический гид-переводчик · 4000+ языков</p>
+            <p class="small">Изначально готовился для дипломатических миссий. После третьего
+              инцидента переведён в туризм — там ставки ниже.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal mb-4">Выберите корабль</h3>
+    <div class="row g-4 mb-5">
+      <div class="col-md-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1043/500/380" alt="Корабль «Ржавая Селёдка»"></div>
+          <div class="card-body">
+            <h4 class="h5">«Ржавая Селёдка»</h4>
+            <p class="text-muted small">Железные койки, честное слово капитана и восхитительный скрежещущий
+              звук на поворотах. Wi-Fi есть, но работает только по вторникам.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">120 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Место на «Ржавой Селёдке» (эконом)" data-price="120 галактических кредитов">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1035/500/380" alt="Корабль «Скромный Странник»"></div>
+          <div class="card-body">
+            <h4 class="h5">«Скромный Странник»</h4>
+            <p class="text-muted small">Отдельная каюта, иллюминатор (не открывается) и нормальный
+              завтрак. Скрежещет заметно тише «Селёдки».</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">340 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Каюта на «Скромном Страннике» (стандарт)" data-price="340 галактических кредитов">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal">
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1069/500/380" alt="Лайнер «Вечный Комфорт»"></div>
+          <div class="card-body">
+            <h4 class="h5">«Вечный Комфорт»</h4>
+            <p class="text-muted small">Бассейн с искусственной гравитацией, дворецкий-голограмма
+              и вид на любую звезду по вашему выбору (в разумных пределах галактики).</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">2 100 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Люкс-каюта на «Вечном Комфорте»" data-price="2 100 галактических кредитов">Забронировать</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal mb-4">Трофеи фотоохоты</h3>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="trophy-card trophy-card--nebula">
+          <div class="trophy-card__body">
+            <span class="mood-card__eyebrow">Не удалось снять</span>
+            <h4 class="mood-card__title">Существо класса «Застенчивое»</h4>
+            <p class="small mb-0">Застеснялось объектива. Прилагаем фото места, где оно только что было.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="trophy-card trophy-card--swirl">
+          <div class="trophy-card__body">
+            <span class="mood-card__eyebrow">Кадр недели</span>
+            <h4 class="mood-card__title">Туманность Вечного Понедельника</h4>
+            <p class="small mb-0">Светится ровно с той интенсивностью, с которой хочется на работу.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="trophy-card trophy-card--stars">
+          <div class="trophy-card__body">
+            <span class="mood-card__eyebrow">Редкий вид</span>
+            <h4 class="mood-card__title">Кристаллический лишайник Кси-4</h4>
+            <p class="small mb-0">Растёт только там, где никто не ждёт. В основном на обшивке «Селёдки».</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="trophy-card trophy-card--burst">
+          <div class="trophy-card__body">
+            <span class="mood-card__eyebrow">Курьёз</span>
+            <h4 class="mood-card__title">Автостопщик на обочине орбиты</h4>
+            <p class="small mb-0">Голосовал большим пальцем. У него их было шесть. Подвезли до Странника.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <button id="randomFactBtn" class="btn btn-outline-accent" type="button">
+        <i class="bi bi-stars"></i> Случайный факт о Вселенной
+      </button>
+      <p id="randomFactText" class="mt-3 fst-italic mb-0"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
      КУРСЫ — Bootstrap Cards + модальное окно записи
      ================================================================ -->
 <section class="section section--alt" id="courses">
@@ -293,8 +553,8 @@
             <h3 class="h5">Основы фотографии</h3>
             <p class="text-muted small">Экспопара, композиция, работа с ручными настройками камеры. 4 недели, для начинающих.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
-              <span class="course-card__price">6 900 ₽</span>
-              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Основы фотографии" data-price="6 900 ₽">Записаться</button>
+              <span class="course-card__price">890 ₪</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Основы фотографии" data-price="890 ₪">Записаться</button>
             </div>
           </div>
         </div>
@@ -307,8 +567,8 @@
             <h3 class="h5">Портретная съёмка</h3>
             <p class="text-muted small">Свет, поза, взаимодействие с моделью — в студии и на natural light. 3 недели.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
-              <span class="course-card__price">8 900 ₽</span>
-              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Портретная съёмка" data-price="8 900 ₽">Записаться</button>
+              <span class="course-card__price">1 290 ₪</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Портретная съёмка" data-price="1 290 ₪">Записаться</button>
             </div>
           </div>
         </div>
@@ -321,8 +581,8 @@
             <h3 class="h5">Обработка и ретушь</h3>
             <p class="text-muted small">Lightroom и Photoshop: цветокоррекция, ретушь портрета, экспорт. 3 недели.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
-              <span class="course-card__price">7 500 ₽</span>
-              <button class="btn btn-outline-brass btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Обработка и ретушь" data-price="7 500 ₽">Записаться</button>
+              <span class="course-card__price">990 ₪</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Обработка и ретушь" data-price="990 ₪">Записаться</button>
             </div>
           </div>
         </div>
@@ -346,7 +606,7 @@
           <div class="card-body">
             <h3 class="h5 mb-1">Анна Соколова</h3>
             <p class="text-muted small mb-2">Портретная и свадебная съёмка · 10 лет опыта</p>
-            <button class="btn btn-outline-brass btn-sm" data-instructor="anna">Подробнее</button>
+            <button class="btn btn-outline-accent btn-sm" data-instructor="anna">Подробнее</button>
           </div>
         </div>
       </div>
@@ -356,7 +616,7 @@
           <div class="card-body">
             <h3 class="h5 mb-1">Дмитрий Волков</h3>
             <p class="text-muted small mb-2">Пейзаж и travel-фотография · 8 лет опыта</p>
-            <button class="btn btn-outline-brass btn-sm" data-instructor="dmitry">Подробнее</button>
+            <button class="btn btn-outline-accent btn-sm" data-instructor="dmitry">Подробнее</button>
           </div>
         </div>
       </div>
@@ -366,7 +626,7 @@
           <div class="card-body">
             <h3 class="h5 mb-1">Мария Кузнецова</h3>
             <p class="text-muted small mb-2">Обработка и ретушь · Lightroom/Photoshop</p>
-            <button class="btn btn-outline-brass btn-sm" data-instructor="maria">Подробнее</button>
+            <button class="btn btn-outline-accent btn-sm" data-instructor="maria">Подробнее</button>
           </div>
         </div>
       </div>
@@ -384,31 +644,31 @@
     <div class="row g-4">
       <div class="col-md-4 reveal">
         <div class="card review-card p-4">
-          <i class="bi bi-quote text-brass fs-3"></i>
+          <i class="bi bi-quote text-accent fs-3"></i>
           <p>«Пришёл вообще без опыта. Через месяц уже снимал друзьям первую фотопрогулку!»</p>
           <div class="d-flex align-items-center gap-2 mt-3">
             <img src="https://i.pravatar.cc/60?img=15" class="rounded-circle" width="42" height="42" alt="Игорь П.">
-            <div><strong>Игорь П.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
+            <div><strong>Игорь П.</strong><div class="text-accent small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="card review-card p-4">
-          <i class="bi bi-quote text-brass fs-3"></i>
+          <i class="bi bi-quote text-accent fs-3"></i>
           <p>«Очень тёплая атмосфера в группе и понятные объяснения без занудства.»</p>
           <div class="d-flex align-items-center gap-2 mt-3">
             <img src="https://i.pravatar.cc/60?img=25" class="rounded-circle" width="42" height="42" alt="Елена Р.">
-            <div><strong>Елена Р.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
+            <div><strong>Елена Р.</strong><div class="text-accent small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div></div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="card review-card p-4">
-          <i class="bi bi-quote text-brass fs-3"></i>
+          <i class="bi bi-quote text-accent fs-3"></i>
           <p>«Курс по портретам перевернул моё понимание света. Теперь по-другому смотрю на кадр.»</p>
           <div class="d-flex align-items-center gap-2 mt-3">
             <img src="https://i.pravatar.cc/60?img=8" class="rounded-circle" width="42" height="42" alt="Сергей Т.">
-            <div><strong>Сергей Т.</strong><div class="text-brass small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div></div>
+            <div><strong>Сергей Т.</strong><div class="text-accent small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div></div>
           </div>
         </div>
       </div>
@@ -521,21 +781,21 @@
           <div class="row g-3">
             <div class="col-md-6">
               <label for="cfName" class="form-label">Имя *</label>
-              <input type="text" class="form-control" id="cfName" required minlength="2">
+              <input type="text" class="form-control" id="cfName" name="name" required minlength="2">
               <div class="invalid-feedback">Пожалуйста, укажите имя (минимум 2 символа).</div>
             </div>
             <div class="col-md-6">
               <label for="cfEmail" class="form-label">Email *</label>
-              <input type="email" class="form-control" id="cfEmail" required>
+              <input type="email" class="form-control" id="cfEmail" name="email" required>
               <div class="invalid-feedback">Введите корректный email.</div>
             </div>
             <div class="col-md-6">
               <label for="cfPhone" class="form-label">Телефон</label>
-              <input type="tel" class="form-control" id="cfPhone" placeholder="+7 (___) ___-__-__">
+              <input type="tel" class="form-control" id="cfPhone" name="phone" placeholder="+972 5_-___-____">
             </div>
             <div class="col-md-6">
               <label for="cfSubject" class="form-label">Тема</label>
-              <select class="form-select" id="cfSubject">
+              <select class="form-select" id="cfSubject" name="subject">
                 <option>Общий вопрос</option>
                 <option>Запись на курс</option>
                 <option>Сотрудничество</option>
@@ -544,18 +804,21 @@
             </div>
             <div class="col-12">
               <label for="cfMessage" class="form-label">Сообщение *</label>
-              <textarea class="form-control" id="cfMessage" rows="4" required minlength="10"></textarea>
+              <textarea class="form-control" id="cfMessage" name="message" rows="4" required minlength="10"></textarea>
               <div class="invalid-feedback">Сообщение должно содержать не менее 10 символов.</div>
             </div>
             <div class="col-12">
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="cfAgree" required>
+                <input class="form-check-input" type="checkbox" id="cfAgree" name="agree" required>
                 <label class="form-check-label small" for="cfAgree">Согласен(а) с политикой конфиденциальности *</label>
                 <div class="invalid-feedback">Необходимо согласие для отправки формы.</div>
               </div>
             </div>
+            <p class="small text-muted mb-0">
+              <i class="bi bi-info-circle"></i> Это учебный демо-проект без сервера: форма ничего никуда не отправляет.
+            </p>
             <div class="col-12">
-              <button type="submit" class="btn btn-brass" id="cfSubmitBtn">
+              <button type="submit" class="btn btn-accent" id="cfSubmitBtn">
                 <i class="bi bi-send"></i> Отправить сообщение
               </button>
             </div>
@@ -566,20 +829,36 @@
       <div class="col-lg-5 reveal">
         <div class="contact-info-item">
           <i class="bi bi-geo-alt-fill"></i>
-          <div><strong>Адрес студии</strong><div class="text-muted">г. Москва, ул. Арбат, 10</div></div>
+          <div><strong>Адрес студии</strong><div class="text-muted">Старый порт Яффо, Тель-Авив-Яффо, Израиль</div></div>
         </div>
         <div class="contact-info-item">
           <i class="bi bi-telephone-fill"></i>
-          <div><strong>Телефон</strong><div class="text-muted">+7 (495) 123-45-67</div></div>
+          <div><strong>Телефон</strong><div class="text-muted">+972-3-522-3344</div></div>
         </div>
         <div class="contact-info-item">
           <i class="bi bi-envelope-fill"></i>
-          <div><strong>Email</strong><div class="text-muted">info@objectiv-photoclub.ru</div></div>
+          <div><strong>Email</strong><div class="text-muted">info@objectiv-photoclub.co.il</div></div>
         </div>
         <div class="contact-info-item">
           <i class="bi bi-clock-fill"></i>
-          <div><strong>Часы работы</strong><div class="text-muted">Пн–Сб: 10:00–20:00</div></div>
+          <div><strong>Часы работы</strong><div class="text-muted">Вс–Чт: 10:00–20:00</div></div>
         </div>
+
+        <div class="nav-app-links">
+          <a class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener"
+             href="https://www.google.com/maps/dir/?api=1&destination=Jaffa+Port,+Tel+Aviv-Yafo,+Israel">
+            <i class="bi bi-google"></i> Google Maps
+          </a>
+          <a class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener"
+             href="https://waze.com/ul?q=Jaffa%20Port%2C%20Tel%20Aviv-Yafo%2C%20Israel&navigate=yes">
+            <i class="bi bi-signpost-2"></i> Waze
+          </a>
+          <a class="btn btn-outline-accent btn-sm" target="_blank" rel="noopener"
+             href="moovit://directions?dest_lat=32.0525&dest_lon=34.7500&dest_name=Jaffa%20Port%2C%20Tel%20Aviv-Yafo">
+            <i class="bi bi-bus-front"></i> Moovit
+          </a>
+        </div>
+        <p class="small text-muted mt-1">Moovit откроется в приложении, если оно установлено на телефоне.</p>
 
         <div class="audio-player mt-4">
           <button class="audio-player__play" id="ambientToggle" type="button" aria-label="Включить фоновую атмосферу студии">
@@ -601,10 +880,10 @@
       <div class="col-12 reveal">
         <div class="map-frame">
           <iframe
-            src="https://maps.google.com/maps?q=Moscow%2C%20Arbat%20street%2C%2010&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Jaffa%20Port%2C%20Tel%20Aviv-Yafo%2C%20Israel&t=&z=15&ie=UTF8&iwloc=&output=embed"
             width="100%" height="380" style="border:0;" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="Карта расположения фотостудии «Объектив»"></iframe>
+            title="Карта расположения фотостудии «Объектив» — Старый порт Яффо"></iframe>
         </div>
       </div>
     </div>
@@ -619,7 +898,7 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-4">
-        <h5><i class="bi bi-camera-fill text-brass"></i> Объектив</h5>
+        <h5><i class="bi bi-camera-fill text-accent"></i> Объектив</h5>
         <p class="small">Фотоклуб для тех, кто хочет научиться видеть и снимать осознанно. Курсы, мастер-классы, сообщество.</p>
         <div class="social-row">
           <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -633,6 +912,7 @@
         <ul class="list-unstyled small">
           <li><a href="#about">О хобби</a></li>
           <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#destinations">География</a></li>
           <li><a href="#courses">Курсы</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -640,6 +920,7 @@
       <div class="col-lg-3 col-md-4">
         <h5>Курсы</h5>
         <ul class="list-unstyled small">
+          <li><a href="#space-safari">Фотоохота по Вселенной</a></li>
           <li><a href="#courses">Основы фотографии</a></li>
           <li><a href="#courses">Портретная съёмка</a></li>
           <li><a href="#courses">Обработка и ретушь</a></li>
@@ -649,8 +930,8 @@
         <h5>Рассылка</h5>
         <p class="small">Разбор одного кадра в неделю — на почту.</p>
         <form id="newsletterForm" class="d-flex gap-2 flex-wrap" novalidate>
-          <input type="email" class="form-control form-control-sm" id="newsletterEmail" placeholder="Ваш email" required style="max-width:220px;">
-          <button class="btn btn-brass btn-sm" type="submit">OK</button>
+          <input type="email" class="form-control form-control-sm" id="newsletterEmail" name="email" placeholder="Ваш email" required style="max-width:220px;">
+          <button class="btn btn-accent btn-sm" type="submit">OK</button>
         </form>
         <div id="newsletterAlertZone" class="mt-2"></div>
       </div>
@@ -659,7 +940,7 @@
     <div class="footer-bottom">
       <div class="container">
         <span class="small">© 2026 Фотоклуб «Объектив». Учебный курсовой проект.</span>
-        <span class="small">Сделано с <i class="bi bi-heart-fill text-brass"></i> для изучения фронтенда</span>
+        <span class="small">Сделано с <i class="bi bi-heart-fill text-accent"></i> для изучения фронтенда</span>
       </div>
     </div>
   </div>
@@ -685,7 +966,7 @@
           <button class="photo-nav-btn" id="photoPrevBtn" aria-label="Предыдущее фото"><i class="bi bi-chevron-left"></i></button>
           <div class="text-center">
             <div id="photoModalTitle" class="fw-semibold"></div>
-            <div id="photoModalExif" class="small text-brass" style="font-family:var(--font-mono);"></div>
+            <div id="photoModalExif" class="small text-accent" style="font-family:var(--font-mono);"></div>
           </div>
           <button class="photo-nav-btn" id="photoNextBtn" aria-label="Следующее фото"><i class="bi bi-chevron-right"></i></button>
         </div>
@@ -708,13 +989,13 @@
         <form id="courseForm">
           <div class="mb-3">
             <label for="courseName" class="form-label">Ваше имя</label>
-            <input type="text" class="form-control" id="courseName" required>
+            <input type="text" class="form-control" id="courseName" name="name" required>
           </div>
           <div class="mb-3">
             <label for="coursePhone" class="form-label">Телефон</label>
-            <input type="tel" class="form-control" id="coursePhone" required>
+            <input type="tel" class="form-control" id="coursePhone" name="phone" required>
           </div>
-          <button type="submit" class="btn btn-brass w-100">Подтвердить запись</button>
+          <button type="submit" class="btn btn-accent w-100">Подтвердить запись</button>
         </form>
       </div>
     </div>
@@ -733,7 +1014,7 @@
         <img id="instructorModalImg" src="" alt="" width="90" height="90" class="rounded-circle flex-shrink-0" style="object-fit:cover;">
         <div>
           <h4 class="h5 mb-1" id="instructorModalName"></h4>
-          <p class="text-brass small mb-2" id="instructorModalRole"></p>
+          <p class="text-accent small mb-2" id="instructorModalRole"></p>
           <p class="small mb-0" id="instructorModalBio"></p>
         </div>
       </div>
@@ -746,10 +1027,10 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content text-center">
       <div class="modal-body p-5">
-        <i class="bi bi-check-circle-fill text-brass" style="font-size:3.2rem;"></i>
+        <i class="bi bi-check-circle-fill text-accent" style="font-size:3.2rem;"></i>
         <h4 class="mt-3">Спасибо!</h4>
-        <p class="text-muted mb-0" id="successModalText">Ваше сообщение отправлено. Мы свяжемся с вами в ближайшее время.</p>
-        <button type="button" class="btn btn-brass mt-4" data-bs-dismiss="modal">Отлично</button>
+        <p class="text-muted mb-0" id="successModalText">Это учебный демо-проект: данные никуда не отправлены, сервера у сайта нет.</p>
+        <button type="button" class="btn btn-accent mt-4" data-bs-dismiss="modal">Отлично</button>
       </div>
     </div>
   </div>
