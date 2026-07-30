@@ -1,0 +1,11 @@
+/* footer.css — подвал сайта. .social-row намеренно переиспользован из cards.css. */
+
+footer.site-footer{ background:var(--taiga); color:#EFE7DA; padding:4.5rem 0 0; }
+[data-bs-theme="dark"] footer.site-footer{ background:var(--taiga-deep); }
+footer.site-footer h5{ font-family:var(--font-display); color:#fff; margin-bottom:1.1rem; }
+footer.site-footer a{ color:#D9CFBF; transition:color var(--transition-fast); }
+footer.site-footer a:hover{ color:var(--sea); }
+footer.site-footer .list-unstyled li{ margin-bottom:.55rem; }
+
+.footer-bottom{ border-top:1px solid rgba(255,255,255,.12); margin-top:3rem; padding:1.4rem 0; }
+.footer-bottom .container{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }

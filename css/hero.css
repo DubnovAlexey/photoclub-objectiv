@@ -1,0 +1,52 @@
+/* hero.css — первый экран: параллакс-фон (двигает scrollEffects.js), зерно плёнки,
+   покаскадное появление текста, градиентное слово в заголовке.
+   Зависит от animations.css (bounceDown, grainShift, shimmerText) и layout.css (.reveal). */
+
+.hero{ position:relative; height:100vh; min-height:600px; overflow:hidden; display:flex; align-items:center; }
+
+.hero__bg{
+  position:absolute; inset:-18% 0 0 0; height:140%;
+  background-size:cover; background-position:center;
+  will-change: transform;
+}
+.hero__vignette{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse at center, transparent 35%, var(--overlay) 100%),
+    linear-gradient(0deg, rgba(12,20,18,.75) 0%, rgba(12,20,18,.25) 45%, rgba(12,20,18,.55) 100%);
+}
+/* «Зерно плёнки»: два смещаемых слоя точек создают мерцающую текстуру без реального шума */
+.hero__grain{
+  position:absolute; inset:-10%;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 3px 3px;
+  animation: grainShift 1s steps(2) infinite alternate;
+  opacity:.35; mix-blend-mode: overlay;
+}
+.hero__container{ position:relative; z-index:2; }
+.hero__content{ max-width:640px; color:#fff; }
+.hero .eyebrow{ color: var(--sea); }
+.hero__title{ font-size: clamp(2.4rem, 6vw, 4.2rem); line-height:1.05; color:#fff; margin-bottom:1.25rem; }
+
+/* Единственное место на сайте с анимированным градиентным текстом — намеренно редкий приём */
+.hero__title-accent{
+  background: linear-gradient(90deg, var(--sea) 0%, #EAF6F2 45%, var(--altai) 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmerText 7s linear infinite;
+}
+
+.hero__subtitle{ font-size:1.15rem; color:rgba(255,255,255,.88); max-width:520px; margin-bottom:2rem; }
+.hero__actions{ display:flex; gap:1rem; flex-wrap:wrap; }
+
+.hero__content .reveal:nth-child(1){ transition-delay:.1s; }
+.hero__content .reveal:nth-child(2){ transition-delay:.25s; }
+.hero__content .reveal:nth-child(3){ transition-delay:.4s; }
+.hero__content .reveal:nth-child(4){ transition-delay:.55s; }
+
+.scroll-cue{
+  position:absolute; bottom:34px; left:50%; transform:translateX(-50%);
+  z-index:2; background:transparent; border:none; color:#fff; font-size:1.6rem;
+  animation: bounceDown 2s ease-in-out infinite; cursor:pointer; opacity:.85;
+}
+.hero .film-strip{ position:absolute; left:0; right:0; bottom:0; z-index:2; }

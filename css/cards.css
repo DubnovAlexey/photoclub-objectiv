@@ -1,0 +1,29 @@
+/* cards.css — один паттерн карточек переиспользуется в 3 секциях: курсы, преподаватели, отзывы. */
+
+.course-card, .team-card, .review-card{
+  background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius-md);
+  box-shadow:var(--shadow-sm); transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  height:100%;
+}
+.course-card:hover, .team-card:hover, .review-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+
+.course-card__img, .team-card__img{ height:200px; overflow:hidden; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+.course-card__img img, .team-card__img img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+.course-card:hover .course-card__img img, .team-card:hover .team-card__img img{ transform:scale(1.06); }
+
+.team-card__img img{ filter:grayscale(60%); transition: filter .4s ease, transform .5s ease; }
+.team-card:hover .team-card__img img{ filter:grayscale(0%); }
+
+.course-card__price{ font-family:var(--font-mono); color:var(--sea); font-weight:700; font-size:1.1rem; }
+
+/* Flexbox: прижимает кнопку к низу карточки независимо от длины текста над ней */
+.card-body{ display:flex; flex-direction:column; }
+.card-body .btn{ margin-top:auto; }
+
+/* Используется и в карточках отзывов, и в footer.css (там подключается отдельно) */
+.social-row{ display:flex; gap:.6rem; }
+.social-row a{
+  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:var(--sand-deep); color:var(--ink); transition: all var(--transition-fast);
+}
+.social-row a:hover{ background:var(--sea); color:#fff; transform:translateY(-3px); }

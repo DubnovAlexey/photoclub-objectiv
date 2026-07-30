@@ -1,0 +1,41 @@
+/* gallery.css — фильтры + сетка (CSS Grid) + доступный с клавиатуры лайтбокс-триггер. */
+
+.gallery-filters{ display:flex; flex-wrap:wrap; gap:.6rem; margin-bottom:2.2rem; }
+.filter-btn{
+  font-family:var(--font-mono); font-size:.8rem; text-transform:uppercase; letter-spacing:.05em;
+  padding:.5rem 1.1rem; border-radius:999px; border:1.5px solid var(--border-soft);
+  background:transparent; color:var(--ink-muted); cursor:pointer; transition: all var(--transition-fast);
+}
+.filter-btn:hover{ border-color:var(--sea); color:var(--sea); }
+.filter-btn.active{ background:var(--sea); border-color:var(--sea); color:#fff; }
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap:1.4rem;
+}
+.gallery-item{ position:relative; border-radius:var(--radius-md); box-shadow:var(--shadow-sm); aspect-ratio: 4/3; margin:0; overflow:hidden; }
+.gallery-item.is-hidden{ display:none; }
+
+/* Триггер — настоящий <button>, а не div/figure с обработчиком клика:
+   даёт Tab-фокус и активацию Enter/Space бесплатно, без ручного role/tabindex/keydown. */
+.gallery-item__btn{
+  all:unset; display:block; width:100%; height:100%; position:relative; cursor:pointer;
+}
+.gallery-item__btn img{ width:100%; height:100%; object-fit:cover; display:block; transition: transform .6s ease, filter .6s ease; }
+.gallery-item.is-bw img{ filter: grayscale(100%) contrast(1.05); }
+.gallery-item__btn:hover img,
+.gallery-item__btn:focus-visible img{ transform:scale(1.09); }
+.gallery-item__btn:focus-visible{ outline:3px solid var(--sea); outline-offset:-3px; }
+
+.gallery-item__caption{
+  position:absolute; inset:auto 0 0 0; padding:1rem;
+  background: linear-gradient(0deg, rgba(15,12,8,.88), transparent);
+  color:#fff; opacity:0; transform:translateY(12px);
+  transition: all var(--transition-fast);
+  display:flex; flex-direction:column; gap:.15rem; text-align:left;
+}
+.gallery-item__btn:hover .gallery-item__caption,
+.gallery-item__btn:focus-visible .gallery-item__caption{ opacity:1; transform:translateY(0); }
+.gallery-item__title{ font-weight:700; font-size:.95rem; }
+.gallery-item__exif{ font-family:var(--font-mono); font-size:.72rem; color:rgba(255,255,255,.75); }

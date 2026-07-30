@@ -1,0 +1,31 @@
+/* layout.css — layout-примитивы, переиспользуемые несколькими секциями:
+   .section, .reveal, .eyebrow, .film-strip. */
+
+.section{ padding: 6.5rem 0; position:relative; }
+.section--alt{ background: var(--sand-deep); }
+
+.eyebrow{
+  font-family: var(--font-mono); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase;
+  color: var(--sea); margin-bottom:.75rem; font-weight:600;
+}
+
+.section-title{ font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom:1.5rem; position:relative; padding-bottom:1rem; }
+.section-title::after{
+  content:""; position:absolute; left:0; bottom:0; width:56px; height:4px; background:var(--sea); border-radius:2px;
+}
+
+.text-accent{ color: var(--sea); }
+
+/* Плёночный разделитель — перфорация киноплёнки, сигнатурный элемент дизайна */
+.film-strip{
+  height:16px; width:100%;
+  background-color: var(--ink);
+  -webkit-mask-image: repeating-linear-gradient(90deg, transparent 0 7px, black 7px 23px);
+          mask-image: repeating-linear-gradient(90deg, transparent 0 7px, black 7px 23px);
+  opacity:.85;
+}
+[data-bs-theme="dark"] .film-strip{ background-color: var(--sea); }
+
+/* Эффект появления блоков при прокрутке: класс .is-visible добавляется модулем js/scrollReveal.js */
+.reveal{ opacity:0; transform: translateY(34px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.is-visible{ opacity:1; transform:translateY(0); }

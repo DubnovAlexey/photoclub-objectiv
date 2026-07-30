@@ -1,0 +1,72 @@
+/* variables.css — единая точка правды по цвету и типографике для всех остальных модулей. */
+
+:root{
+  --sand:        #F1E7CC;   /* тёплый песок/известняк — фон */
+  --sand-deep:   #E6D6AC;   /* фон чередующихся секций */
+  --surface:     #FBF6E8;   /* карточки */
+  --ink:         #201B12;
+  --ink-muted:   #6B5F45;
+
+  --sea:         #1B8A8F;   /* бирюза Средиземного моря — основной акцент */
+  --sea-rgb:     27, 138, 143;
+  --sea-deep:    #145F63;
+
+  --taiga:       #1F4536;   /* глубокий таёжный зелёный — тёмные секции/footer */
+  --taiga-deep:  #16302A;
+
+  --clay:        #B5563A;   /* обожжённая глина скал — редкий тёплый акцент */
+  --altai:       #D6478A;   /* алтайский цветок — точечные вспышки (значки, бейджи) */
+
+  --border-soft: rgba(32, 27, 18, 0.12);
+  --overlay:     rgba(12, 24, 22, 0.55);
+  --shadow-sm: 0 2px 10px rgba(20,30,28,.10);
+  --shadow-md: 0 14px 34px rgba(20,30,28,.16);
+  --shadow-lg: 0 26px 64px rgba(20,30,28,.22);
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --base-font-size: 16px;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-lg: 26px;
+  --header-h: 78px;
+  --transition-fast: .2s ease;
+  --transition-med: .45s cubic-bezier(.22,.61,.36,1);
+}
+
+[data-bs-theme="dark"]{
+  --sand:        #14231F;
+  --sand-deep:   #0E1917;
+  --surface:     #1A2B26;
+  --ink:         #EAE3D2;
+  --ink-muted:   #A6B0A5;
+
+  --sea:         #3FB6BB;
+  --sea-rgb:     63, 182, 187;
+  --sea-deep:    #1B8A8F;
+
+  --taiga:       #2F5850;
+  --taiga-deep:  #16302A;
+
+  --clay:        #C97551;
+  --altai:       #E36AA1;
+
+  --border-soft: rgba(234, 227, 210, 0.14);
+  --overlay:     rgba(0,0,0,.68);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,.35);
+  --shadow-md: 0 14px 34px rgba(0,0,0,.45);
+  --shadow-lg: 0 26px 64px rgba(0,0,0,.55);
+}
+
+/* Мост к переменным Bootstrap 5.3 (--bs-*): наш "sea" становится системным primary */
+[data-bs-theme="light"], [data-bs-theme="dark"]{
+  --bs-body-bg: var(--sand);
+  --bs-body-color: var(--ink);
+  --bs-border-color: var(--border-soft);
+  --bs-primary: var(--sea);
+  --bs-primary-rgb: var(--sea-rgb);
+  --bs-link-color: var(--sea);
+  --bs-link-hover-color: var(--sea-deep);
+}

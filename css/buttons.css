@@ -1,0 +1,37 @@
+/* buttons.css — все варианты кнопок + круглые icon-button + плавающая «наверх». */
+
+.btn{ border-radius: var(--radius-sm); font-weight:600; padding:.65rem 1.5rem; transition: all var(--transition-fast); }
+
+.btn-accent{ background: var(--sea); border-color:var(--sea); color:#fff; }
+.btn-accent:hover{ background: var(--sea-deep); border-color:var(--sea-deep); color:#fff; transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.btn-outline-accent{ border:2px solid var(--sea); color:var(--sea); background:transparent; }
+.btn-outline-accent:hover{ background:var(--sea); color:#fff; transform: translateY(-2px); }
+
+.btn-outline-light{ border:2px solid rgba(255,255,255,.7); color:#fff; }
+.btn-outline-light:hover{ background:#fff; color:var(--ink); transform: translateY(-2px); }
+
+.icon-btn{
+  display:flex; align-items:center; justify-content:center;
+  width:42px; height:42px; border-radius:50%;
+  background: transparent; border:1.5px solid var(--border-soft); color:var(--ink);
+  font-family: var(--font-mono); font-weight:600; font-size:.85rem;
+  transition: all var(--transition-fast); cursor:pointer;
+}
+.icon-btn:hover{ background: var(--sea); border-color:var(--sea); color:#fff; transform: scale(1.08); }
+
+.font-size-controls{ display:flex; gap:.4rem; }
+
+/* Плавающая кнопка "наверх": видимость переключает scrollEffects.js (.is-visible),
+   сам переход — smoothScroll.js. */
+#backToTop{
+  position:fixed; right:1.6rem; bottom:1.6rem; z-index:1030;
+  width:50px; height:50px; border-radius:50%; border:none;
+  background:var(--sea); color:#fff; font-size:1.2rem;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:var(--shadow-md); cursor:pointer;
+  opacity:0; visibility:hidden; transform:translateY(16px);
+  transition: all var(--transition-fast);
+}
+#backToTop.is-visible{ opacity:1; visibility:visible; transform:translateY(0); }
+#backToTop:hover{ background:var(--sea-deep); transform:translateY(-4px); }

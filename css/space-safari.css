@@ -1,0 +1,39 @@
+/* space-safari.css — секция «Фотоохота по Вселенной». Трофеи оформлены БЕЗ единой
+   внешней картинки: четыре разных чисто-CSS приёма (radial-gradient, conic-gradient,
+   повторяющийся точечный паттерн, лучевой градиент) — намеренная демонстрация
+   разнообразия техник, а не просто повтор одного и того же эффекта четыре раза. */
+
+.trophy-card{
+  position:relative; border-radius:var(--radius-md); overflow:hidden;
+  aspect-ratio: 4/5; box-shadow:var(--shadow-sm); color:#fff;
+  transition: transform var(--transition-fast);
+}
+.trophy-card:hover{ transform:translateY(-6px); }
+.trophy-card__body{ position:absolute; inset:auto 0 0 0; padding:1.1rem; }
+
+/* приём 1: несколько наложенных radial-gradient — мягкое облако газа */
+.trophy-card--nebula{
+  background:
+    radial-gradient(circle at 30% 30%, rgba(214,71,138,.55), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(27,138,143,.55), transparent 60%),
+    var(--taiga-deep);
+}
+
+/* приём 2: conic-gradient — эффект воронки/водоворота */
+.trophy-card--swirl{
+  background: conic-gradient(from 0deg, var(--taiga-deep), var(--sea), var(--altai), var(--taiga-deep));
+}
+
+/* приём 3: повторяющийся радиальный паттерн — звёздное поле */
+.trophy-card--stars{
+  background-color:#0B0F14;
+  background-image: radial-gradient(rgba(255,255,255,.8) 1px, transparent 1.4px),
+                     radial-gradient(rgba(255,255,255,.5) 1px, transparent 1.4px);
+  background-size: 26px 26px, 54px 54px;
+  background-position: 0 0, 13px 20px;
+}
+
+/* приём 4: радиальный градиент из центра — вспышка/взрыв */
+.trophy-card--burst{
+  background: radial-gradient(circle at 50% 40%, #fff 0%, var(--altai) 22%, var(--clay) 55%, var(--taiga-deep) 100%);
+}

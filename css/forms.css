@@ -1,0 +1,9 @@
+/* forms.css — общий стиль полей для трёх разных форм: #contactForm, #courseForm, #newsletterForm. */
+
+.form-control, .form-select{
+  background:var(--surface); border:1.5px solid var(--border-soft); color:var(--ink); border-radius:var(--radius-sm);
+}
+.form-control:focus, .form-select:focus{
+  border-color:var(--sea); box-shadow:0 0 0 .2rem rgba(var(--sea-rgb),.2); background:var(--surface); color:var(--ink);
+}
+.form-label{ font-weight:600; font-size:.9rem; }

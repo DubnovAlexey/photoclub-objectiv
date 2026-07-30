@@ -1,0 +1,94 @@
+/* content-sections.css — стили контентных секций, каждая из которых встречается
+   на странице РОВНО ОДИН РАЗ (в отличие от buttons/cards/forms, переиспользуемых
+   в нескольких местах и поэтому вынесенных в свои файлы). Секции короткие,
+   поэтому собраны в одном файле с чёткими разделами вместо шести отдельных
+   файлов на 10-15 строк каждый. */
+
+/* ---------- О хобби: сетка преимуществ (CSS Grid) + alert-подсказка ---------- */
+.benefits-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap:1.4rem;
+}
+.benefit-card{
+  display:flex; gap:1rem; align-items:flex-start;
+  background:var(--surface); border:1px solid var(--border-soft);
+  border-radius:var(--radius-md); padding:1.4rem; box-shadow:var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.benefit-card:hover{ transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.benefit-card i{ font-size:1.6rem; color:var(--sea); flex-shrink:0; }
+.benefit-card h3{ font-size:1.02rem; margin-bottom:.25rem; font-family:var(--font-body); font-weight:700; }
+.benefit-card p{ font-size:.9rem; color:var(--ink-muted); margin-bottom:0; }
+
+.alert-tip{ background: rgba(var(--sea-rgb), .12); border:1px solid rgba(var(--sea-rgb), .35); color:var(--ink); border-radius:var(--radius-sm); }
+
+/* ---------- Лучшие кадры недели: донастройка Bootstrap Carousel ---------- */
+.best-carousel .carousel-item{ height:60vh; min-height:380px; }
+.best-carousel img{ width:100%; height:100%; object-fit:cover; filter:brightness(.75); }
+.best-carousel .carousel-caption{ text-align:left; left:6%; right:6%; bottom:12%; }
+.best-carousel .carousel-caption h5{ font-family:var(--font-display); font-size:1.8rem; }
+.best-carousel .carousel-caption span{ font-family:var(--font-mono); font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sea); }
+
+/* ---------- География съёмок: карточки-настроения, часть — с видео-фоном ---------- */
+.mood-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:1.4rem;
+}
+.mood-card{
+  position:relative; border-radius:var(--radius-md); overflow:hidden;
+  aspect-ratio: 3/4; box-shadow:var(--shadow-sm); isolation:isolate;
+}
+.mood-card video, .mood-card img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2;
+}
+.mood-card::after{ /* затемнение для читаемости подписи поверх видео/фото */
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(0deg, rgba(10,12,10,.85) 0%, rgba(10,12,10,.15) 55%, rgba(10,12,10,.35) 100%);
+}
+/* Четвёртая карточка — без видео/фото, чистый анимированный градиент в акцентных тонах */
+.mood-card--gradient{
+  background: linear-gradient(135deg, var(--taiga) 0%, var(--sea) 45%, var(--altai) 100%);
+  background-size: 220% 220%;
+  animation: moodGradient 12s ease-in-out infinite;
+}
+.mood-card--gradient::after{ content:none; } /* градиенту не нужно затемнение поверх */
+
+.mood-card__body{ position:absolute; inset:auto 0 0 0; padding:1.3rem; color:#fff; }
+.mood-card__eyebrow{ font-family:var(--font-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--altai); }
+.mood-card__title{ font-family:var(--font-display); font-size:1.35rem; margin:.2rem 0 0; }
+
+/* ---------- FAQ: донастройка Bootstrap Accordion + кнопка озвучки ---------- */
+.accordion-button{ font-family:var(--font-display); font-weight:700; background:var(--surface); color:var(--ink); }
+.accordion-button:not(.collapsed){ background:var(--surface); color:var(--sea); box-shadow:none; }
+.accordion-button:focus{ box-shadow:0 0 0 .2rem rgba(var(--sea-rgb),.25); }
+.accordion-item{ background:var(--surface); border-color:var(--border-soft); }
+
+.faq-listen{ border:none; background:transparent; color:var(--sea); font-size:1.05rem; margin-left:.6rem; cursor:pointer; }
+.faq-listen:hover{ color:var(--sea-deep); transform:scale(1.15); display:inline-block; }
+
+/* ---------- Контакты: строки адреса/телефона + рамка карты + кнопки навигаторов ---------- */
+.contact-info-item{ display:flex; gap:1rem; align-items:flex-start; margin-bottom:1.3rem; }
+.contact-info-item i{ color:var(--sea); font-size:1.3rem; margin-top:.15rem; }
+
+.map-frame{ border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-md); border:1px solid var(--border-soft); }
+
+.nav-app-links{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+
+/* ---------- Аудиоплеер «атмосфера студии» ---------- */
+.audio-player{
+  display:flex; align-items:center; gap:1rem; background:var(--surface);
+  border:1px solid var(--border-soft); border-radius:var(--radius-md);
+  padding:1rem 1.3rem; box-shadow: var(--shadow-sm);
+}
+.audio-player__play{
+  width:48px; height:48px; border-radius:50%; background:var(--sea); color:#fff; border:none;
+  display:flex; align-items:center; justify-content:center; font-size:1.2rem; cursor:pointer; flex-shrink:0;
+}
+.audio-player__eq{ display:flex; align-items:flex-end; gap:3px; height:22px; }
+.audio-player__eq span{ width:3px; background:var(--sea); border-radius:2px; height:100%; animation: eqBar 1s ease-in-out infinite; }
+.audio-player__eq span:nth-child(2){ animation-delay:.15s; }
+.audio-player__eq span:nth-child(3){ animation-delay:.3s; }
+.audio-player.is-paused .audio-player__eq span{ animation-play-state:paused; transform:scaleY(.15); }
+.volume-slider{ width:120px; accent-color:var(--sea); }
