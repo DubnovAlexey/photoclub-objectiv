@@ -374,25 +374,43 @@
 </section>
 
 <!-- ================================================================
-     ФОТООХОТА ПО ВСЕЛЕННОЙ — оригинальный юмористический раздел.
-     Персонажи, корабли и «трофеи» придуманы с нуля; ни имён, ни
-     музыки, ни образов из чужих книг/игр здесь нет.
+     АКАДЕМИЯ ЭКСТРЕМАЛЬНОЙ ГАЛАКТИЧЕСКОЙ ФОТОГРАФИИ — оригинальный
+     юмористический раздел в стиле сухого корпоративного цинизма.
+     Персонажи, программы, корабли и шутки придуманы с нуля для этого
+     проекта; ни музыки, ни ассетов из игр или книг здесь нет.
      ================================================================ -->
 <section class="section section--alt" id="space-safari">
   <div class="container">
-    <p class="eyebrow reveal">НОВОЕ НАПРАВЛЕНИЕ КЛУБА (ЭКСПЕРИМЕНТАЛЬНОЕ)</p>
-    <h2 class="section-title reveal">Фотоохота по Вселенной</h2>
-    <p class="reveal">Всё началось с фразы в чате клуба: «а можно снять портрет туманности?».
-      Бухгалтерия до сих пор не нашла, кто её написал. Мы наняли трёх гидов сомнительной
-      адёкватности, взяли в лизинг три корабля разной степени исправности — и открыли направление.
-      Фотографии почти всех объектов прилагаются.</p>
+    <p class="eyebrow reveal">ФАКУЛЬТЕТ ЭКСТРИМА (ЭКСПЕРИМЕНТАЛЬНАЯ ПРОГРАММА)</p>
+    <h2 class="section-title reveal"><span class="glitch-heading" data-text="Академия экстремальной галактической фотографии">Академия экстремальной галактической фотографии</span></h2>
+    <p class="reveal">Мы начинали с портретов в студии на Яффо. Потом кто-то в чате спросил:
+      «а можно сдать диплом, сняв портрет туманности?». Бухгалтерия до сих пор ищет автора
+      сообщения. Так появился факультет. Вероятность успешной защиты диплома — не более 12%,
+      но зачёт по композиции кадра вам поставят в любом случае — посмертно, если потребуется.</p>
+    <div class="reveal mb-2 d-flex flex-wrap align-items-center gap-3">
+      <button class="btn btn-accent btn-cta-pulse" type="button" data-bs-toggle="modal" data-bs-target="#courseModal"
+        data-course="Факультет экстремальной галактической фотографии (полный курс)" data-price="от 480 галактических кредитов">
+        Оплатить курс и подписать отказ от претензий
+      </button>
+      <a href="#" id="safetyDodgeLink" class="dodge-link small text-muted" role="button">Читать правила безопасности</a>
+    </div>
+    <div class="safety-reveal small" id="safetyReveal">
+      Правило №1: правил нет. Правило №2: см. правило №1. Возврат средств не предусмотрен ни при каких
+      условиях, включая условия, которые ещё не были изобретены на момент подписания договора.
+    </div>
 
-    <div class="audio-player mt-3 mb-5 reveal">
+    <div class="reveal my-4">
+      <div class="survival-counter" id="survivalCounter">12.0%</div>
+      <div class="small text-muted">вероятность успешной защиты диплома</div>
+      <div class="survival-note" id="survivalNote"></div>
+    </div>
+
+    <div class="audio-player mt-1 mb-5 reveal">
       <button class="audio-player__play" id="spaceAmbientToggle" type="button" aria-label="Включить космический эмбиент">
         <i class="bi bi-play-fill" id="spaceAmbientIcon" aria-hidden="true"></i>
       </button>
       <div>
-        <div class="fw-semibold small mb-1">Космический эмбиент</div>
+        <div class="fw-semibold small mb-1">Гимн Академии (помогает от панических атак)</div>
         <div class="audio-player__eq" aria-hidden="true"><span></span><span></span><span></span></div>
       </div>
       <input type="range" class="volume-slider ms-auto" id="spaceAmbientVolume" min="0" max="100" value="30" aria-label="Громкость">
@@ -401,87 +419,145 @@
       </audio>
     </div>
     <p class="small text-muted mt-n4 mb-5">
-      Оригинальная синтезаторная композиция, написанная для этого проекта (Web Audio API/генерация в Node.js) —
-      не саундтрек какой-либо игры.
+      Оригинальная синтезаторная композиция, написанная для этого проекта (Web Audio API/Node.js) —
+      не саундтрек какой-либо игры и не чья-либо запись.
     </p>
 
-    <h3 class="reveal mb-4">Ваши гиды</h3>
+    <h3 class="reveal mb-4">Учебные программы</h3>
     <div class="row g-4 mb-5">
       <div class="col-md-4 reveal">
-        <div class="card team-card text-center">
-          <div class="team-card__img"><img src="assets/images/guide-grh.svg" alt="Гид Грх"></div>
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1074/500/380" alt="Курс «Основы выживания с макрообъективом»"></div>
           <div class="card-body">
-            <h4 class="h5 mb-1">Грх (просто Грх)</h4>
-            <p class="text-muted small mb-2">Гид по туманностям · родом с Пыльной Окраины</p>
-            <p class="small">Водил экскурсии по 14 туманностям, пока не понял, что туристам нужно
-              одно — красивое фото на фоне звёзд. Про количество глаз вопросы не задавайте — по документам их два.</p>
+            <h4 class="h5">Основы выживания с макрообъективом</h4>
+            <p class="text-muted small">Как снять хищную флору крупным планом раньше, чем она снимет вас. Штатив в комплект не входит — как и страховка штатива.</p>
+            <p class="course-card__truth mb-0">Использование телеобъектива расценивается комиссией как трусость. Оценка за композицию ставится в любом случае — включая посмертную.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">480 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Основы выживания с макрообъективом" data-price="480 галактических кредитов">Записаться</button>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="card team-card text-center">
-          <div class="team-card__img"><img src="assets/images/guide-iris.svg" alt="Капитан Ирис Вон"></div>
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1044/500/380" alt="Курс «Свадебная съёмка в невесомости»"></div>
           <div class="card-body">
-            <h4 class="h5 mb-1">Капитан Ирис Вон</h4>
-            <p class="text-muted small mb-2">Пилот · экстремальная фотосъёмка</p>
-            <p class="small">Тринадцать успешных посадок из четырнадцати попыток. Четырнадцатая
-              считается произведением современного искусства в местном музее обломков.</p>
+            <h4 class="h5">Свадьба в невесомости и метеоритный дождь</h4>
+            <p class="text-muted small">Практика для тех, кому мало земных свадеб. Букет невесты разгоняется в вакууме до впечатляющих скоростей — учитывайте это в композиции.</p>
+            <p class="course-card__truth mb-0">Для тех, кто хочет проверить фразу «пока смерть не разлучит» буквально в день церемонии. Композиция от этого только выигрывает.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">650 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Свадебная съёмка в невесомости" data-price="650 галактических кредитов">Записаться</button>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
-        <div class="card team-card text-center">
-          <div class="team-card__img"><img src="assets/images/guide-echo9.svg" alt="Гид ЭХО-9"></div>
+        <div class="card course-card">
+          <div class="course-card__img"><img src="https://picsum.photos/id/1050/500/380" alt="Курс «Таймлапс старения Вселенной»"></div>
           <div class="card-body">
-            <h4 class="h5 mb-1">ЭХО-9</h4>
-            <p class="text-muted small mb-2">Синтетический гид-переводчик · 4000+ языков</p>
-            <p class="small">Изначально готовился для дипломатических миссий. После третьего
-              инцидента переведён в туризм — там ставки ниже.</p>
+            <h4 class="h5">Продвинутый таймлапс старения Вселенной</h4>
+            <p class="text-muted small">Включает криозаморозку между кадрами. Криозаморозка иногда даёт сбой. Курсовая работа в этом случае засчитывается автоматически.</p>
+            <p class="course-card__truth mb-0">Возьмите солнцезащитный крем с фактором защиты 5 000 000. Комиссия по учёту оборудования уточняет: урна для пепла в стоимость курса не входит, приобретается отдельно.</p>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <span class="course-card__price">920 кредитов</span>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Таймлапс старения Вселенной" data-price="920 галактических кредитов">Записаться</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <h3 class="reveal mb-4">Выберите корабль</h3>
+    <h3 class="reveal mb-4">Экипаж и служба поддержки</h3>
+    <div class="row g-4 mb-5">
+      <div class="col-md-3 col-sm-6 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-grh.svg" alt="Гид Грх"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">Грх (просто Грх)</h4>
+            <p class="text-muted small mb-2">Полевой куратор · туманности</p>
+            <p class="small">Водил экскурсии по 14 туманностям, пока не понял: туристам нужно одно —
+              красивое фото на фоне звёзд. Число глаз не обсуждается — по документам их два.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-iris.svg" alt="Капитан Ирис Вон"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">Капитан Ирис Вон</h4>
+            <p class="text-muted small mb-2">Пилот-инструктор</p>
+            <p class="small">Тринадцать успешных посадок из четырнадцати попыток. Четырнадцатая
+              признана произведением современного искусства в местном музее обломков.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-echo9.svg" alt="Куратор ЭХО-9"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">ЭХО-9</h4>
+            <p class="text-muted small mb-2">Старший куратор (бизнес-уровень)</p>
+            <p class="small">Готовился к дипломатическим миссиям, после третьего инцидента переведён
+              в туризм. Вздыхает и рассуждает о бессмысленности запечатления момента на фоне вечности —
+              но методичку проверяет исправно.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6 reveal">
+        <div class="card team-card text-center">
+          <div class="team-card__img"><img src="assets/images/guide-critic.svg" alt="ИИ-критик «Безупречный Кадр»"></div>
+          <div class="card-body">
+            <h4 class="h5 mb-1">«Безупречный Кадр»</h4>
+            <p class="text-muted small mb-2">VIP-инструктор (нейросеть, британский акцент)</p>
+            <p class="small">Пассивно-агрессивно критикует композицию кадра ровно в те моменты,
+              когда на группу выходит местная фауна. Считает это «конструктивной обратной связью».</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="reveal mb-4">Транспорт до места практики</h3>
     <div class="row g-4 mb-5">
       <div class="col-md-4 reveal">
         <div class="card course-card">
-          <div class="course-card__img"><img src="https://picsum.photos/id/1043/500/380" alt="Корабль «Ржавая Селёдка»"></div>
+          <div class="course-card__img"><img src="https://picsum.photos/id/1043/500/380" alt="Шаттл «Ржавая Диафрагма»"></div>
           <div class="card-body">
-            <h4 class="h5">«Ржавая Селёдка»</h4>
-            <p class="text-muted small">Железные койки, честное слово капитана и восхитительный скрежещущий
-              звук на поворотах. Wi-Fi есть, но работает только по вторникам.</p>
+            <h4 class="h5">«Ржавая Диафрагма»</h4>
+            <p class="text-muted small">Разгерметизация салона официально считается «естественной вентиляцией».
+              Чай платный. Wi-Fi ловит только в шлюзе, и то не всегда.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
               <span class="course-card__price">120 кредитов</span>
-              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Место на «Ржавой Селёдке» (эконом)" data-price="120 галактических кредитов">Забронировать</button>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Трансфер: «Ржавая Диафрагма» (эконом)" data-price="120 галактических кредитов">Забронировать</button>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="card course-card">
-          <div class="course-card__img"><img src="https://picsum.photos/id/1035/500/380" alt="Корабль «Скромный Странник»"></div>
+          <div class="course-card__img"><img src="https://picsum.photos/id/1035/500/380" alt="Шаттл «Иллюзия Фокуса»"></div>
           <div class="card-body">
-            <h4 class="h5">«Скромный Странник»</h4>
-            <p class="text-muted small">Отдельная каюта, иллюминатор (не открывается) и нормальный
-              завтрак. Скрежещет заметно тише «Селёдки».</p>
+            <h4 class="h5">«Иллюзия Фокуса»</h4>
+            <p class="text-muted small">Кресла откидываются. Спасательные жилеты выдаются только тем,
+              кто сдал домашнее задание вовремя. Остальным — вежливая улыбка.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
               <span class="course-card__price">340 кредитов</span>
-              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Каюта на «Скромном Страннике» (стандарт)" data-price="340 галактических кредитов">Забронировать</button>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Трансфер: «Иллюзия Фокуса» (бизнес)" data-price="340 галактических кредитов">Забронировать</button>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 reveal">
         <div class="card course-card">
-          <div class="course-card__img"><img src="https://picsum.photos/id/1069/500/380" alt="Лайнер «Вечный Комфорт»"></div>
+          <div class="course-card__img"><img src="https://picsum.photos/id/1069/500/380" alt="Шаттл «Золотой Пиксель»"></div>
           <div class="card-body">
-            <h4 class="h5">«Вечный Комфорт»</h4>
-            <p class="text-muted small">Бассейн с искусственной гравитацией, дворецкий-голограмма
-              и вид на любую звезду по вашему выбору (в разумных пределах галактики).</p>
+            <h4 class="h5">«Золотой Пиксель»</h4>
+            <p class="text-muted small">Бесплатный кислородный бар и панорамные окна из настоящего хрусталя.
+              Не спрашивайте, почему хрусталь в открытом космосе — это плохая идея.</p>
             <div class="d-flex justify-content-between align-items-center mt-2">
               <span class="course-card__price">2 100 кредитов</span>
-              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Люкс-каюта на «Вечном Комфорте»" data-price="2 100 галактических кредитов">Забронировать</button>
+              <button class="btn btn-outline-accent btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal" data-course="Трансфер: «Золотой Пиксель» (люкс)" data-price="2 100 галактических кредитов">Забронировать</button>
             </div>
           </div>
         </div>
@@ -489,7 +565,7 @@
     </div>
 
     <h3 class="reveal mb-4">Трофеи фотоохоты</h3>
-    <div class="row g-4">
+    <div class="row g-4 mb-5">
       <div class="col-sm-6 col-lg-3 reveal">
         <div class="trophy-card trophy-card--nebula">
           <div class="trophy-card__body">
@@ -504,7 +580,7 @@
           <div class="trophy-card__body">
             <span class="mood-card__eyebrow">Кадр недели</span>
             <h4 class="mood-card__title">Туманность Вечного Понедельника</h4>
-            <p class="small mb-0">Светится ровно с той интенсивностью, с которой хочется на работу.</p>
+            <p class="small mb-0">Светится ровно с той интенсивностью, с которой хочется на пары.</p>
           </div>
         </div>
       </div>
@@ -513,7 +589,7 @@
           <div class="trophy-card__body">
             <span class="mood-card__eyebrow">Редкий вид</span>
             <h4 class="mood-card__title">Кристаллический лишайник Кси-4</h4>
-            <p class="small mb-0">Растёт только там, где никто не ждёт. В основном на обшивке «Селёдки».</p>
+            <p class="small mb-0">Растёт только там, где никто не ждёт. В основном на обшивке «Диафрагмы».</p>
           </div>
         </div>
       </div>
@@ -522,13 +598,29 @@
           <div class="trophy-card__body">
             <span class="mood-card__eyebrow">Курьёз</span>
             <h4 class="mood-card__title">Автостопщик на обочине орбиты</h4>
-            <p class="small mb-0">Голосовал большим пальцем. У него их было шесть. Подвезли до Странника.</p>
+            <p class="small mb-0">Голосовал большим пальцем. У него их было шесть. Подвезли до «Фокуса».</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="text-center mt-5 reveal">
+    <h3 class="reveal mb-3">Вопросы приёмной комиссии</h3>
+    <div class="row g-4 mb-4">
+      <div class="col-md-4 reveal">
+        <p class="fw-semibold mb-1">Страховка покрывает расщепление на атомы?</p>
+        <p class="small text-muted">Да, но выплату получает ближайший родственник, а не вы. Так честнее.</p>
+      </div>
+      <div class="col-md-4 reveal">
+        <p class="fw-semibold mb-1">Что, если домашку настигло нападение пришельцев?</p>
+        <p class="small text-muted">Дедлайн не сдвигается. Мы рекомендуем сдавать домашку заранее, а нападения планировать на выходные.</p>
+      </div>
+      <div class="col-md-4 reveal">
+        <p class="fw-semibold mb-1">Я потерял флешку с дипломом в чёрной дыре. Что делать?</p>
+        <p class="small text-muted">Формально данные никуда не делись — они просто растянуты по горизонту событий. Комиссия примет диплом сразу, как заново отрастите руку, которой его туда уронили.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 reveal">
       <button id="randomFactBtn" class="btn btn-outline-accent" type="button">
         <i class="bi bi-stars"></i> Случайный факт о Вселенной
       </button>
@@ -538,6 +630,7 @@
 </section>
 
 <!-- ================================================================
+
      КУРСЫ — Bootstrap Cards + модальное окно записи
      ================================================================ -->
 <section class="section section--alt" id="courses">
@@ -920,7 +1013,7 @@
       <div class="col-lg-3 col-md-4">
         <h5>Курсы</h5>
         <ul class="list-unstyled small">
-          <li><a href="#space-safari">Фотоохота по Вселенной</a></li>
+          <li><a href="#space-safari">Академия экстрима</a></li>
           <li><a href="#courses">Основы фотографии</a></li>
           <li><a href="#courses">Портретная съёмка</a></li>
           <li><a href="#courses">Обработка и ретушь</a></li>

@@ -17,3 +17,18 @@
   0%,100%{ background-position:0% 50%; }
   50%{ background-position:100% 50%; }
 }
+
+/* space-safari.css: .glitch-heading — сдвиг цветных слоёв текста, имитация сбоя проектора */
+@keyframes glitchShift{
+  0%, 92%, 100%{ transform: translate(0,0); }
+  93%{ transform: translate(-3px, 1px); }
+  94%{ transform: translate(3px, -1px); }
+  95%{ transform: translate(-2px, 0); }
+  96%{ transform: translate(0,0); }
+}
+
+/* space-safari.css: .btn-cta-pulse — единственная намеренно навязчивая анимация проекта (пародия) */
+@keyframes ctaPulse{
+  0%,100%{ box-shadow: 0 0 0 0 rgba(var(--sea-rgb),.55); }
+  50%{ box-shadow: 0 0 0 14px rgba(var(--sea-rgb),0); }
+}

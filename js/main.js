@@ -22,6 +22,7 @@ import { initContactForm }       from './contactForm.js';
 import { initNewsletterForm }    from './newsletterForm.js';
 import { initSpeechFeatures }    from './speech.js';
 import { initSpaceSafariFacts }  from './spaceSafari.js';
+import { initDodgeLink, initSurvivalCounter } from './spaceEffects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
@@ -42,4 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletterForm();
   initSpeechFeatures();
   initSpaceSafariFacts();
+  initDodgeLink();
+  initSurvivalCounter();
 });

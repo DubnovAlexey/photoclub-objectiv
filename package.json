@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "npx serve ../../../../../Users/alex4/Downloads/photoclub-objectiv -l 5500",
+    "start": "npx serve . -l 5500",
     "generate:audio": "node tools/generate-ambient-audio.js",
     "generate:space-audio": "node tools/generate-space-audio.js"
   }

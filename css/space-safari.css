@@ -37,3 +37,44 @@
 .trophy-card--burst{
   background: radial-gradient(circle at 50% 40%, #fff 0%, var(--altai) 22%, var(--clay) 55%, var(--taiga-deep) 100%);
 }
+
+/* ---------- Курсор-прицел видоискателя (тема камеры, не оружия) — только внутри секции ---------- */
+#space-safari{ cursor: url('../assets/images/cursor-reticle.svg') 16 16, auto; }
+
+/* ---------- Glitch-заголовок: имитация сбоя дешёвого голопроектора ---------- */
+.glitch-heading{ position:relative; display:inline-block; }
+.glitch-heading::before, .glitch-heading::after{
+  content: attr(data-text); position:absolute; left:0; top:0; width:100%; height:100%;
+  overflow:hidden; background:inherit;
+}
+.glitch-heading::before{ color:#1B8A8F; clip-path: inset(0 0 82% 0); animation: glitchShift 4.5s infinite linear; }
+.glitch-heading::after{ color:#D6478A; clip-path: inset(82% 0 0 0); animation: glitchShift 4.5s infinite linear reverse; }
+
+/* ---------- Пульсирующая CTA-кнопка — единственное намеренное исключение из общего
+   «без навязчивой пульсации»: ирония над агрессивным маркетингом, не самоцель ---------- */
+.btn-cta-pulse{ animation: ctaPulse 2.4s ease-in-out infinite; }
+
+/* ---------- Кнопка-беглец «Правила безопасности» ---------- */
+.dodge-link{ display:inline-block; transition: transform .18s ease; }
+.safety-reveal{ max-height:0; overflow:hidden; opacity:0; transition: all .4s ease; }
+.safety-reveal.is-open{ max-height:200px; opacity:1; margin-top:.75rem; }
+
+/* ---------- Счётчик вероятности защиты диплома ---------- */
+.survival-counter{
+  font-family:var(--font-mono); font-size:2.4rem; font-weight:700; color:var(--altai);
+  transition: color .3s ease;
+}
+.survival-counter.is-critical{ color:#e23; }
+.survival-note{ font-family:var(--font-mono); font-size:.75rem; color:var(--ink-muted); min-height:1.2em; }
+
+/* ---------- Hover-раскрытие «циничной правды» под курсами Академии ---------- */
+#space-safari .course-card__truth{
+  max-height:0; overflow:hidden; opacity:0; transition: all var(--transition-med);
+  font-size:.82rem; font-style:italic; color:var(--sea-deep); border-top:1px dashed var(--border-soft);
+  margin-top:0; padding-top:0;
+}
+#space-safari .course-card:hover .course-card__truth,
+#space-safari .course-card:focus-within .course-card__truth{
+  max-height:120px; opacity:1; margin-top:.6rem; padding-top:.6rem;
+}
+[data-bs-theme="dark"] #space-safari .survival-counter.is-critical{ color:#ff5c4d; }
